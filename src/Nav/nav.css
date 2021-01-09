@@ -1,0 +1,8 @@
+header {
+    border: 2px black solid;
+    background-color: rgb(146, 143, 143);
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    margin-bottom: 10rem;
+}
