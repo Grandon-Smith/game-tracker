@@ -1,9 +1,12 @@
 import React from 'react';
-import './nav.css'
+import './Welcome.css';
+import Nav from '../Nav/Nav';
+
 
 export default function Welcome() {
     return (
         <div>
+            <Nav/>
             <section>
                 <h2>Welcome to Game Saver!</h2>
                 <h3>Where we help you compare game prices across online stores!</h3>
