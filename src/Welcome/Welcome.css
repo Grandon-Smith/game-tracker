@@ -1,0 +1,22 @@
+img {
+    width: 100%;
+    max-width: 40rem;
+}
+
+/* .container {
+    padding: 0 1rem;
+} */
+
+.sec-1 {
+    border: 2px black solid;
+    background-color: lightgray;
+    padding: .5rem .5rem;
+    margin-bottom: 2rem;
+}
+
+.sec-2 {
+    border: 2px black solid;
+    background-color: lightgray;
+    padding: .5rem .5rem;
+    margin-bottom: 2rem;
+}
