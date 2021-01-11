@@ -6,21 +6,26 @@ import GAMES from '../STORE'
 
 
 export default class UserLibrary extends React.Component {
-
+    constructor(props) {
+        super(props)
+        this.state = {
+           userGames: GAMES
+        }
+    }
     componentDidMount() {
         //fetch call to get games
     }
 
     render() {
 
-        const gameList = GAMES.map(game => {
+        const gameList = this.state.userGames.map((game, idx) => {
             return (
-                <div className="game" key={game.gameId}>
-                    <h4>{game.title}</h4>
-                    <p>Normal Price: {game.normalPrice}</p>
-                    <p>Current Sale Price: {game.salePrice}</p>
-                    <img src={`${game.thumb}`}/>
-                </div>
+                <Link to={`/dashboard/user_id/${idx}`} key={idx} className="game" >
+                    <div>
+                        <h4>{game.title}</h4>
+                        <img src={`${game.thumb}`} alt={ `game package cover art of ${game.title}` }/>
+                    </div>
+                </Link>
             )
         })
 
@@ -34,7 +39,7 @@ export default class UserLibrary extends React.Component {
                         <button type="submit"><img src={search} className="search-icon"/></button>
                      </form>
                 </section>
-                <div  className="container">
+                <div className="container">
                     {gameList}
                 </div>
             </div>

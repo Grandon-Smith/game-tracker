@@ -1,11 +1,15 @@
 
 img {
-    max-width: 7rem;
+    width: 100%;
     margin: 1% auto;
+
 }
 
 .wrapper {
     outline: black dotted 2px;
+    margin: auto;
+    max-width: 75rem;
+    min-width: 300px;
 }
 
 .container {
@@ -21,13 +25,15 @@ img {
 }
 
 .game {
-    padding: 0;
-    margin: 0;
+    padding: 1%;
+    margin: .5rem 0;
     line-height: 1rem;
-    max-width: 45%;
+    min-width: 8rem;
+    max-width: 20%;
     border: 2px black solid;
 }
 
 .game > h4, p {
     word-wrap: wrap;
+    max-width: 10rem;
 }

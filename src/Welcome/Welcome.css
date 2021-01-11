@@ -3,9 +3,14 @@ img {
     max-width: 40rem;
 }
 
-/* .container {
-    padding: 0 1rem;
-} */
+.welcome-container {
+    border: red 2px solid;
+    margin: 5px auto;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    max-width: 75rem;
+}
 
 .sec-1 {
     border: 2px black solid;

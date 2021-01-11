@@ -1,9 +1,9 @@
 header {
-    border: 2px black solid;
+    border-bottom: 2px black solid;
     background-color: rgb(146, 143, 143);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 2rem;
-    margin-bottom: 3rem;
+    padding: 1rem;
+    max-width: 100%;
 }

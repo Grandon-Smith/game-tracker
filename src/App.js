@@ -15,11 +15,11 @@ class App extends Component {
             component={Welcome}
           />
           <Route
-            path='/login'
+            exact path='/login'
             component={LoginScreen}
           />
           <Route
-            path='/dashboard/:user_id'
+            exact path='/dashboard/:user_id'
             component={Dashboard}
           />
         </Switch>
