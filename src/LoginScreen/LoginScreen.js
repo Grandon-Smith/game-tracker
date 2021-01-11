@@ -4,10 +4,10 @@ import Nav from '../Nav/Nav';
 import LoginForm from '../LoginForm/LoginForm'
 
 
-export default function Welcome() {
+export default function LoginScreen() {
     return (
         <div>
-            <Nav/>
+            <Nav title={'/'}/>
             <LoginForm/>
         </div>
     )

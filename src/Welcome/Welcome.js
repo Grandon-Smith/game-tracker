@@ -9,7 +9,7 @@ import graph from '../pics/graph.jpg'
 export default function Welcome() {
     return (
         <div className="container">
-            <Nav/>
+            <Nav title={'/'}/>
             <section className="sec-1">
                 <img src={graph} alt="man holding an xbox controller."/>
                 <h2>Welcome to Game Saver!</h2>

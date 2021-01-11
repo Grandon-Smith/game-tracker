@@ -1,4 +1,4 @@
-export default [
+const GAMES = [
     {
         "internalName": "CRYINGSUNS",
         "title": "Crying Suns",
@@ -1260,3 +1260,5 @@ export default [
         "thumb": "https://images.greenmangaming.com/18f2c9baa6974a5a94c3e15bd6715e00/5bb62f4449924cbd8a5f705b4e696edc.jpg"
     }
 ]
+
+module.exports = GAMES;

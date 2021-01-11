@@ -7,9 +7,9 @@ export default function LoginForm() {
             <form>
                 <fieldset>
                     <legend>Login:</legend>
-                    <label for="username" name="username">Username:</label>
+                    <label htmlFor="username" name="username">Username: </label>
                     <input id="username" type="text"/>
-                    <label for="password" name="password">Password:</label>
+                    <label htmlFor="password" name="password">Password: </label>
                     <input id="password" type="password"/>
                     <input type="submit"/>
                 </fieldset>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
-import Nav from './Nav/Nav'
 import Welcome from './Welcome/Welcome'
 import LoginScreen from './LoginScreen/LoginScreen'
+import Dashboard from './Dashboard/Dashboard'
 
 class App extends Component {
   render() {
@@ -17,6 +17,10 @@ class App extends Component {
           <Route
             path='/login'
             component={LoginScreen}
+          />
+          <Route
+            path='/dashboard/:user_id'
+            component={Dashboard}
           />
         </Switch>
       </div>
