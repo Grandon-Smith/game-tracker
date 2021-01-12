@@ -4,29 +4,67 @@ import './App.css';
 import Welcome from './Welcome/Welcome'
 import LoginScreen from './LoginScreen/LoginScreen'
 import Dashboard from './Dashboard/Dashboard'
+import GlobalSearch from './GlobalSearch/GlobalSearch'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Switch>
-          <Route
-            exact path='/'
-            component={Welcome}
-          />
-          <Route
-            exact path='/login'
-            component={LoginScreen}
-          />
-          <Route
-            exact path='/dashboard/:user_id'
-            component={Dashboard}
-          />
-        </Switch>
-      </div>
-  );
+  constructor(props) {
+    super(props)
+    this.state = {
+       search: "",
+       gameList: [],
+       searchResults: [],
+    }
+}
 
-  }
+  globalSearch = (e) => {
+    e.preventDefault()
+    const title = this.state.search
+    fetch(`https://www.cheapshark.com/api/1.0/games?title=${title}`)
+        .then(res => {
+            if(!res.ok)
+                console.log('error fetching games')
+            return res.json()
+        })
+        .then(res => {
+            if(res.length < 1)
+            console.log('there are no games with that title')
+            return res
+        })
+        .then(res => {
+            if(res.length > 0)
+            this.setState({
+                gameList: res
+            })
+        })
+        .catch(error => {
+            console.error(error)
+        })
+}
+
+    render() {
+        return (
+          <div className="App">
+            <Switch>
+              <Route
+                exact path='/'
+                component={Welcome}
+              />
+              <Route
+                exact path='/login'
+                component={LoginScreen}
+              />
+              <Route
+                exact path='/dashboard/:user_id'
+                component={Dashboard}
+              />
+              <Route
+                exact path='/dashboard/:user_id/:search'
+                component={GlobalSearch}
+              />
+            </Switch>
+          </div>
+        );
+    }
     
 }
 

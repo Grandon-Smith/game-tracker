@@ -3,8 +3,8 @@ import './LoginForm.css'
 
 export default function LoginForm() {
     return (
-        <div>
-            <form >
+        <div className="login-container">
+            <form>
                 <fieldset className="login-form">
                     <legend>Login:</legend>
                     <label htmlFor="username" name="username">Username: </label>

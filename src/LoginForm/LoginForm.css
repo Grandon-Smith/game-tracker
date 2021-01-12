@@ -1,14 +1,22 @@
+.login-container {
+    margin: 0 5%;
+}
+
 .login-form {
     display: flex;
     flex-direction: column;
     margin-top: 5rem;
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 5%;
 }
 
 .login-form > label, button {
     margin-top: 1rem;
 }
 
-button {
+.login-form > button {
     max-width: 6rem;
     width: 50%;
     margin-left: auto;

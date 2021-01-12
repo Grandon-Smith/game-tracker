@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom'
 import "./GlobalSearch.css"
 import Nav from '../Nav/Nav';
 import search from '../pics/magnifying-glass.webp'
-import UserLibrary from '../UserLibrary/UserLibrary'
+// import UserLibrary from '../UserLibrary/UserLibrary'
 
 
-export default class Dashboard extends React.Component {
+export default class GlobalSearch extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -15,9 +15,8 @@ export default class Dashboard extends React.Component {
         }
     }
 
-    globalSearch = (e) => {
-        e.preventDefault()
-        const title = this.state.search
+    componentDidMount() {
+        const title = this.props.match.params.search
         fetch(`https://www.cheapshark.com/api/1.0/games?title=${title}`)
             .then(res => {
                 if(!res.ok)
@@ -34,25 +33,29 @@ export default class Dashboard extends React.Component {
                 this.setState({
                     gameList: res
                 })
-                console.log(res)
             })
             .catch(error => {
                 console.error(error)
             })
     }
 
+    generateSearchResults = () => {
+
+    }
+
+
 
     render() {
         console.log(this.state)
         return (
             <div>
-                <Nav title={'/dashboard/:user_id'}/>
+                <Nav title={'/dashboard/:user_id/search'}/>
                 <form className="global-search" onSubmit={this.globalSearch}>
                     <input 
                         type="text" 
                         onChange={e => this.setState({search: e.target.value})}
                     />
-                    {/* <Link to={'/dashboard/:user_id/search'}> */}
+                    <Link to={'/dashboard/:user_id/search'}>
                         <button type="submit">
                             <img 
                                 src={search} 
@@ -60,9 +63,11 @@ export default class Dashboard extends React.Component {
                                 alt="magnifying glass search icon"
                             />
                         </button>
-                    {/* </Link> */}
+                    </Link>
                 </form>
-                <UserLibrary />
+            <h2>
+                HELLO THERE
+            </h2>
             </div>
         )
     }
