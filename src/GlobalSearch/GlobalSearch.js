@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import "./Dashboard.css"
+import "./GlobalSearch.css"
 import Nav from '../Nav/Nav';
 import search from '../pics/magnifying-glass.webp'
 import UserLibrary from '../UserLibrary/UserLibrary'

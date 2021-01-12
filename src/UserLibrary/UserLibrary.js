@@ -29,14 +29,13 @@ export default class UserLibrary extends React.Component {
             )
         })
 
-        console.log(GAMES)
         return (
             <div className="wrapper">
                 <section className="game-search">
                     <h3>Games you follow: </h3>
                     <form>
                         <input type="text"/>
-                        <button type="submit"><img src={search} className="search-icon"/></button>
+                        <button type="submit"><img src={search} alt="magnifying glass search icon" className="search-icon"/></button>
                      </form>
                 </section>
                 <div className="container">

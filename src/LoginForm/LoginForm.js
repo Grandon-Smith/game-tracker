@@ -4,14 +4,14 @@ import './LoginForm.css'
 export default function LoginForm() {
     return (
         <div>
-            <form>
-                <fieldset>
+            <form >
+                <fieldset className="login-form">
                     <legend>Login:</legend>
                     <label htmlFor="username" name="username">Username: </label>
                     <input id="username" type="text"/>
                     <label htmlFor="password" name="password">Password: </label>
                     <input id="password" type="password"/>
-                    <input type="submit"/>
+                    <button type="submit">Log in</button>
                 </fieldset>
             </form>
         </div>
