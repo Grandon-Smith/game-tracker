@@ -5,6 +5,7 @@ import Welcome from './Welcome/Welcome'
 import LoginScreen from './LoginScreen/LoginScreen'
 import Dashboard from './Dashboard/Dashboard'
 import GlobalSearch from './GlobalSearch/GlobalSearch'
+import GameScreen from './GameScreen/GameScreen'
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class App extends Component {
   globalSearch = (e) => {
     e.preventDefault()
     const title = this.state.search
-    fetch(`https://www.cheapshark.com/api/1.0/games?title=${title}`)
+    fetch(`https://www.cheapshark.com/api/1.0/deals?title=${title}`)
         .then(res => {
             if(!res.ok)
                 console.log('error fetching games')
@@ -60,6 +61,10 @@ class App extends Component {
               <Route
                 exact path='/dashboard/:user_id/:search'
                 component={GlobalSearch}
+              />
+              <Route
+              exact path='/dashboard/:user_id/:search/:gameID'
+              component={GameScreen}
               />
             </Switch>
           </div>

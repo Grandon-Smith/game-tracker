@@ -17,7 +17,7 @@ export default class GlobalSearch extends React.Component {
 
     componentDidMount() {
         const title = this.props.match.params.search
-        fetch(`https://www.cheapshark.com/api/1.0/games?title=${title}`)
+        fetch(`https://www.cheapshark.com/api/1.0/deals?title=${title}`)
             .then(res => {
                 if(!res.ok)
                     console.log('error fetching games')
@@ -42,10 +42,15 @@ export default class GlobalSearch extends React.Component {
     generateSearchResults = () => {
         const gameSearch = this.state.gameList.map((game, idx) => {
             return (
-                <Link to={`/dashboard/:user_id/search`} key={idx} className="search-res">
+                <Link 
+                    to={`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}/${this.state.gameList[idx].gameID}`}
+                    key={idx} className="search-res">
                     <div >
-                        <h4>{game.external}</h4>
-                        <img src={`${game.thumb}`} alt={ `game package cover art of ${game.external}` }/>
+                        <h4>{game.title}</h4>
+                        <img
+                            src={`${game.thumb}`}
+                            alt={ `game package cover art of ${game.title}` }
+                        />
                     </div>
                 </Link>
             )
@@ -69,14 +74,16 @@ export default class GlobalSearch extends React.Component {
                         <button type="submit">
                             <img 
                                 src={search} 
-                                className="search-icon"
+                                className="search-icon-2"
                                 alt="magnifying glass search icon"
                             />
                         </button>
                     </Link>
                 </form>
                 <div className="container">
-                    {this.generateSearchResults()}
+                    {
+                    this.generateSearchResults()
+                    }
                 </div>
             </div>
         )

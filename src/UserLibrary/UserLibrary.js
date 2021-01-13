@@ -30,12 +30,18 @@ export default class UserLibrary extends React.Component {
         })
 
         return (
-            <div className="wrapper">
+            <div className="user-library-wrapper">
                 <section className="game-search">
                     <h3>Games you follow: </h3>
                     <form>
                         <input type="text"/>
-                        <button type="submit"><img src={search} alt="magnifying glass search icon" className="search-icon"/></button>
+                        {/* <button type="submit">
+                                <img 
+                                    src={search} 
+                                    alt="magnifying glass search icon" 
+                                    className="search-icon-2"
+                                />
+                        </button> */}
                      </form>
                 </section>
                 <div className="container">

@@ -1,7 +1,51 @@
-.search-icon {
-   width: 1rem;
+.dashboard-container {
+   width: 100%;
+   background-color: rgb(231, 231, 231);
+   padding: 2em 5%;
 }
 
-.global-search {
+.search-form {
    width: 100%;
+   /* border: black dotted 2px; */
+}
+
+.global-search-div {
+   /* border: red solid 2px; */
+   height: 2rem;
+   margin: 5px;
+   display: flex;
+   justify-content: center;
+}
+
+.global-search-div > input{
+   border: 1px solid black;
+   width: 60%;
+   height: 100%;
+   max-width: 15rem;
+   font-size: 14px;
+   border-radius: 15px;
+   padding-left: .6rem;
+}
+
+.global-search-div > input:hover {
+   box-shadow: 2px 3px 3px rgb(182, 172, 172);
+   /* border: 2px solid black; */
+}
+.global-search-div > input:focus {
+   box-shadow: 2px 3px 3px rgb(182, 172, 172);
+   outline: none
+}
+
+.global-search-div > button {
+   /* border: blue solid 1px; */
+   height: 100%;
+   background-color: transparent;
+   /* border: none; */
+   border-radius: 50%;
+   cursor: pointer;
+}
+.search-icon {
+   height: 100%;
+   width: auto;
+   background-color: transparent;
 }

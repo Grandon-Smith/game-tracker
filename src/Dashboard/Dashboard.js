@@ -27,22 +27,26 @@ export default class Dashboard extends React.Component {
         return (
             <div>
                 <Nav title={'/dashboard/:user_id'}/>
-                <form className="global-search" onSubmit={this.globalSearch}>
-                    <input
-                        id="globalSearch"
-                        type="text" 
-                        placeholder="Search game deals"
-                        onChange={e => this.setState({search: e.target.value})}
-                    />
-                        <button type="submit">
-                            <img 
-                                src={search} 
-                                className="search-icon"
-                                alt="magnifying glass search icon"
+                <div className="dashboard-container">
+                    <form className="search-form" onSubmit={this.globalSearch}>
+                        <div className="global-search-div">
+                            <input
+                                id="globalSearch"
+                                type="text" 
+                                placeholder="Search game deals"
+                                onChange={e => this.setState({search: e.target.value})}
                             />
-                        </button>
-                </form>
-                <UserLibrary />
+                            <button type="submit">
+                                <img 
+                                    src={search} 
+                                    className="search-icon"
+                                    alt="magnifying glass search icon"
+                                />
+                            </button>
+                        </div>
+                    </form>
+                    <UserLibrary />
+                </div>
             </div>
         )
     }

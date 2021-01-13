@@ -12,7 +12,7 @@
     padding: 0 5%;
 }
 
-.login-form > label, button {
+.login-form > label, .login-form > button {
     margin-top: 1rem;
 }
 

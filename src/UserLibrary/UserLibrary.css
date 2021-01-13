@@ -4,11 +4,12 @@ img {
     margin: 0 auto;
 }
 
-.wrapper {
-    outline: black dotted 2px;
+.user-library-wrapper {
+    outline: black solid 1px;
     margin: auto;
     max-width: 75rem;
-    min-width: 300px;
+    min-width: 280px;
+    background-color: white;
 }
 
 .container {
