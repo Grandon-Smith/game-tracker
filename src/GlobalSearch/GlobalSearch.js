@@ -40,7 +40,17 @@ export default class GlobalSearch extends React.Component {
     }
 
     generateSearchResults = () => {
-
+        const gameSearch = this.state.gameList.map((game, idx) => {
+            return (
+                <Link to={`/dashboard/:user_id/search`} key={idx} className="search-res">
+                    <div >
+                        <h4>{game.external}</h4>
+                        <img src={`${game.thumb}`} alt={ `game package cover art of ${game.external}` }/>
+                    </div>
+                </Link>
+            )
+        })
+        return gameSearch
     }
 
 
@@ -65,9 +75,9 @@ export default class GlobalSearch extends React.Component {
                         </button>
                     </Link>
                 </form>
-            <h2>
-                HELLO THERE
-            </h2>
+                <div className="container">
+                    {this.generateSearchResults()}
+                </div>
             </div>
         )
     }

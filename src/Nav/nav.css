@@ -1,9 +1,33 @@
-header {
-    border-bottom: 2px black solid;
-    background-color: rgb(146, 143, 143);
+.nav-header {
+    position: relative;
+    border-bottom: 1px black solid;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: 1rem;
-    max-width: 100%;
+    width: 100%;
+}
+
+.nav-header::before {
+    content: "";
+    background-image: url("../pics/Video-Games.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    opacity: .7;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+
+.nav-header > h1, a {
+    color: black;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-header > h1, a:hover {
+    color: blue;
 }

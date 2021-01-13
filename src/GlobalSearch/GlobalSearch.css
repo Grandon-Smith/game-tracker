@@ -1,0 +1,9 @@
+
+.search-res {
+    padding: 1%;
+    margin: .5rem 0;
+    line-height: 1rem;
+    min-width: 8rem;
+    max-width: 20%;
+    border: 2px black solid;
+}

@@ -1,27 +1,34 @@
-img {
+.welcome-container {
     width: 100%;
-    max-width: 40rem;
+    background-color: rgb(206, 206, 206);
+    padding: 2em 5%;
+
 }
 
-.welcome-container {
-    border: red 2px solid;
-    margin: 5px auto;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    max-width: 75rem;
+section > img {
+    width: 100%;
 }
 
 .sec-1 {
-    border: 2px black solid;
-    background-color: lightgray;
-    padding: .5rem .5rem;
+    border: 1px black solid;
+    background-color: white;
     margin-bottom: 2rem;
 }
 
+.sec-1 > div {
+    width: 85%;
+    margin: auto auto;
+    padding: .5em 0;
+}
+
 .sec-2 {
-    border: 2px black solid;
-    background-color: lightgray;
-    padding: .5rem .5rem;
+    border: 1px black solid;
+    background-color: white;
     margin-bottom: 2rem;
+}
+
+.sec-2 > div {
+    width: 85%;
+    margin: auto auto;
+    padding: .5em 0;
 }
