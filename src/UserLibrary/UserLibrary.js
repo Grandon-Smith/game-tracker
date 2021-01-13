@@ -22,8 +22,8 @@ export default class UserLibrary extends React.Component {
             return (
                 <Link to={`/dashboard/user_id/${idx}`} key={idx} className="game" >
                     <div>
-                        <h4>{game.title}</h4>
                         <img src={`${game.thumb}`} alt={ `game package cover art of ${game.title}` }/>
+                        <h4>{game.title}</h4>
                     </div>
                 </Link>
             )

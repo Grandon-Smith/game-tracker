@@ -19,12 +19,12 @@ export default function Welcome() {
                     </div>
                 </section>
                 <section className="sec-2">
+                <img src={controller} alt="man holding an xbox controller."/>
                     <h3>About Us:</h3>
                     <h4>This app specializes in saving you money buying the games you love.
                         We search for game prices, their history, etc and let you know if it's a 
                         good time to buy
                     </h4>
-                    <img src={controller} alt="man holding an xbox controller."/>
                 </section>
             </div>
         </div>
