@@ -10,13 +10,21 @@ export default class GlobalSearch extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-           search: "",
+           search: this.props.match.params.search,
            gameList: [],
+           selectedGame: [],
         }
     }
 
+    // clickGame = (key) => {
+    //     console.log(key)
+    //     this.setState({
+    //         selected: true
+    //     })
+    // }
+
     componentDidMount() {
-        const title = this.props.match.params.search
+        const title = this.state.search
         fetch(`https://www.cheapshark.com/api/1.0/deals?title=${title}`)
             .then(res => {
                 if(!res.ok)
@@ -25,14 +33,15 @@ export default class GlobalSearch extends React.Component {
             })
             .then(res => {
                 if(res.length < 1)
-                console.log('there are no games with that title')
+                    console.log('there are no games with that title')
                 return res
             })
             .then(res => {
-                if(res.length > 0)
-                this.setState({
-                    gameList: res
-                })
+                if(res.length > 0) {
+                    this.setState({
+                        gameList: res
+                    })
+                }
             })
             .catch(error => {
                 console.error(error)
@@ -40,12 +49,18 @@ export default class GlobalSearch extends React.Component {
     }
 
     generateSearchResults = () => {
-        const gameSearch = this.state.gameList.map((game, idx) => {
+        let gameSearch = this.state.gameList.filter(game => game.isOnSale === "1")
+        console.log(gameSearch)
+        gameSearch = gameSearch.map((game, idx) => {
             return (
                 <Link 
                     to={`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}/${this.state.gameList[idx].gameID}`}
-                    key={idx} className="search-res">
-                    <div >
+                    key={idx} className="search-res"
+                    id={idx}
+                    onClick={() => {this.getGameInfo()}}
+                >
+
+                    <div>
                         <h4>{game.title}</h4>
                         <img
                             src={`${game.thumb}`}
@@ -58,34 +73,91 @@ export default class GlobalSearch extends React.Component {
         return gameSearch
     }
 
+    getGameInfo = () => {
+        let game = this.state.gameList.filter(game => this.props.match.params.gameID === game.gameID)
+        console.log(this.props.match.params)
+        game = game.filter(game => game.isOnSale === "1")
+        // this.setState({
+        //     selectedGame: game
+        // })
+        console.log(this)
+    }
 
+    generateGameInfo = () => {
+        
+        // let game = this.state.gameList.filter(game => this.props.match.params.gameID === game.gameID)
+        
+        // game = game.filter(game => game.isOnSale === "1")
+        // this.setState({
+        //     selectedGame: game
+        // })
+        // console.log(game)
+        // return (
+        //     <div>
+        //         <h3>{game[0].title}</h3>
+        //     </div>
+        // )
+    }
 
     render() {
-        console.log(this.state)
-        return (
-            <div>
-                <Nav title={'/dashboard/:user_id/search'}/>
-                <form className="global-search" onSubmit={this.globalSearch}>
-                    <input 
-                        type="text" 
-                        onChange={e => this.setState({search: e.target.value})}
-                    />
-                    <Link to={'/dashboard/:user_id/search'}>
-                        <button type="submit">
-                            <img 
-                                src={search} 
-                                className="search-icon-2"
-                                alt="magnifying glass search icon"
+        console.log(this)
+        if(!this.props.match.params.gameID){
+            return (
+                <div>
+                    <Nav title={'/dashboard/:user_id'}/>
+                    <form className="search-form" onSubmit={this.globalSearch}>
+                        <div className="global-search-div">
+                            <input
+                                id="globalSearch"
+                                type="text" 
+                                placeholder="Search game deals"
+                                onChange={e => this.setState({search: e.target.value})}
                             />
-                        </button>
-                    </Link>
-                </form>
-                <div className="container">
-                    {
-                    this.generateSearchResults()
-                    }
+                            <button type="submit">
+                                <img 
+                                    src={search} 
+                                    className="search-icon"
+                                    alt="magnifying glass search icon"
+                                />
+                            </button>
+                        </div>
+                    </form>
+                    <div className="container">
+                        {
+                        this.generateSearchResults()
+                        }
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        } 
+    else {
+            return(
+                <div>
+                    <Nav title={'/dashboard/:user_id'}/>
+                    <form className="search-form" onSubmit={this.globalSearch}>
+                        <div className="global-search-div">
+                            <input
+                                id="globalSearch"
+                                type="text" 
+                                placeholder="Search game deals"
+                                onChange={e => this.setState({search: e.target.value})}
+                            />
+                            <button type="submit">
+                                <img 
+                                    src={search} 
+                                    className="search-icon"
+                                    alt="magnifying glass search icon"
+                                />
+                            </button>
+                        </div>
+                    </form>
+
+                    <div className="container">
+                        { this.generateGameInfo() }
+                    </div>
+                </div>
+            )
+        }
+        
     }
 }

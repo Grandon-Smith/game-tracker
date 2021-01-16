@@ -5,7 +5,7 @@ import Welcome from './Welcome/Welcome'
 import LoginScreen from './LoginScreen/LoginScreen'
 import Dashboard from './Dashboard/Dashboard'
 import GlobalSearch from './GlobalSearch/GlobalSearch'
-import GameScreen from './GameScreen/GameScreen'
+// import GameScreen from './GameScreen/GameScreen'
 
 class App extends Component {
   constructor(props) {
@@ -64,7 +64,7 @@ class App extends Component {
               />
               <Route
               exact path='/dashboard/:user_id/:search/:gameID'
-              component={GameScreen}
+              component={GlobalSearch}
               />
             </Switch>
           </div>
