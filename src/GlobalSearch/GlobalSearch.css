@@ -1,13 +1,68 @@
 
 .search-res {
-    padding: 1%;
-    margin: .5rem 0;
+    /* padding: 1%; */
+    margin: .5rem;
     line-height: 1rem;
     min-width: 8rem;
     max-width: 20%;
-    border: 2px black solid;
+    border: 1px black solid;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.search-res-img {
+    margin-bottom: -1%;
 }
 
 .search-icon-2{
     width: 1rem;
+}
+
+.body {
+    background-color: rgb(231, 231, 231);
+    height: 100vh;
+}
+
+.global-search-container {
+    display: flex;
+    flex-wrap: wrap;
+    outline: black solid 2px;
+    margin: 2%;
+    padding: 2%;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.game-info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    outline: black solid 2px;
+    margin: 5% auto;
+    padding: 2%;
+    line-height: 1.4rem;
+    justify-content: space-around;
+    background-color: white;
+    min-width: 15rem;
+    max-width: 45rem;
+}
+
+.game-info > img {
+    max-width: 50%;
+    margin: 1rem auto;
+}
+
+.game-info > button {
+    max-width: 5rem;
+    margin: .5rem auto;
+}
+
+.global-game {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.global-game > h4 {
+    padding: .5rem;
 }

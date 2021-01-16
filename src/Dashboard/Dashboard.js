@@ -26,7 +26,7 @@ export default class Dashboard extends React.Component {
         console.log(this)
         return (
             <div>
-                <Nav title={'/dashboard/:user_id'}/>
+                <Nav title={`/dashboard/${this.props.match.params.user_id}`}/>
                 <div className="dashboard-container">
                     <form className="search-form" onSubmit={this.globalSearch}>
                         <div className="global-search-div">

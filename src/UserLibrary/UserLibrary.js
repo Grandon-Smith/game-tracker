@@ -35,13 +35,13 @@ export default class UserLibrary extends React.Component {
                     <h3>Games you follow: </h3>
                     <form>
                         <input type="text"/>
-                        {/* <button type="submit">
+                        <button type="submit">
                                 <img 
                                     src={search} 
                                     alt="magnifying glass search icon" 
                                     className="search-icon-2"
                                 />
-                        </button> */}
+                        </button>
                      </form>
                 </section>
                 <div className="container">

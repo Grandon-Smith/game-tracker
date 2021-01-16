@@ -15,7 +15,7 @@ img {
 .container {
     display: flex;
     flex-wrap: wrap;
-    outline: black dashed 2px;
+    outline: black solid 2px;
     margin: 1%;
     justify-content: space-around;
 }

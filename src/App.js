@@ -5,7 +5,6 @@ import Welcome from './Welcome/Welcome'
 import LoginScreen from './LoginScreen/LoginScreen'
 import Dashboard from './Dashboard/Dashboard'
 import GlobalSearch from './GlobalSearch/GlobalSearch'
-// import GameScreen from './GameScreen/GameScreen'
 
 class App extends Component {
   constructor(props) {

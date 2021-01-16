@@ -46,25 +46,36 @@ export default class GlobalSearch extends React.Component {
             .catch(error => {
                 console.error(error)
             })
+            .then(res => {
+                if(this.props.match.params.gameID) {
+                    const matchingGame = this.state.gameList.filter(
+                            game => parseInt(this.props.match.params.gameID) === parseInt(game.gameID) )
+                    const game = matchingGame.filter(game => game.isOnSale === "1")
+                    this.setState({
+                        selectedGame: game
+                    })
+                }
+            })
     }
 
     generateSearchResults = () => {
         let gameSearch = this.state.gameList.filter(game => game.isOnSale === "1")
-        console.log(gameSearch)
         gameSearch = gameSearch.map((game, idx) => {
             return (
                 <Link 
                     to={`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}/${this.state.gameList[idx].gameID}`}
                     key={idx} className="search-res"
                     id={idx}
-                    onClick={() => {this.getGameInfo()}}
+                    onClick={() => this.getSelectedGameInfo(parseInt(this.state.gameList[idx].gameID))}
                 >
 
-                    <div>
+                    <div className="global-game"
+>
                         <h4>{game.title}</h4>
                         <img
                             src={`${game.thumb}`}
                             alt={ `game package cover art of ${game.title}` }
+                            className="search-res-img"
                         />
                     </div>
                 </Link>
@@ -73,37 +84,42 @@ export default class GlobalSearch extends React.Component {
         return gameSearch
     }
 
-    getGameInfo = () => {
-        let game = this.state.gameList.filter(game => this.props.match.params.gameID === game.gameID)
-        console.log(this.props.match.params)
-        game = game.filter(game => game.isOnSale === "1")
-        // this.setState({
-        //     selectedGame: game
-        // })
-        console.log(this)
+    getSelectedGameInfo = (id) => {
+        const matchingGame = this.state.gameList.filter(game => id === parseInt(game.gameID))
+        const game = matchingGame.filter(game => game.isOnSale === "1")
+        this.setState({
+            selectedGame: game
+        })
     }
 
-    generateGameInfo = () => {
-        
-        // let game = this.state.gameList.filter(game => this.props.match.params.gameID === game.gameID)
-        
-        // game = game.filter(game => game.isOnSale === "1")
-        // this.setState({
-        //     selectedGame: game
-        // })
-        // console.log(game)
-        // return (
-        //     <div>
-        //         <h3>{game[0].title}</h3>
-        //     </div>
-        // )
+    addGameToUserList = () => {
+
+    }
+
+    generateSelectedGameInfo = () => {
+        const game = this.state.selectedGame;
+        console.log(game)
+        return game.map((game, idx) => 
+            <div key={idx} className="game-info">
+                <h3>{game.title}</h3>
+                <img src={game.thumb} alt={`game cover of ${game.title}`}/>
+                <h5>Metacritic Score: {game.metacriticScore === 0 ? "--": game.metacriticScore}</h5>
+                <h5>Steam Rating: {game.steamRatingPercent === 0 ? "--": `${game.steamRatingPercent} % -- ${game.steamRatingText}`}</h5>
+                <h5>Normal Price: ${game.normalPrice}</h5>
+                <h5>Sale Price: ${game.salePrice}</h5>
+               
+                <a href={`https://www.cheapshark.com/redirect?dealID=${game.dealID}`} rel="noreferrer" target="_blank">Buy the Game</a>
+                <button onClick={() => this.props.history.push(`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}`)}>Go Back</button>
+                <button onClick={() => this.addGameToUserList(game.gameID)}>Add to Watch List</button>
+            </div>
+        )
     }
 
     render() {
         console.log(this)
         if(!this.props.match.params.gameID){
             return (
-                <div>
+                <div className="body">
                     <Nav title={'/dashboard/:user_id'}/>
                     <form className="search-form" onSubmit={this.globalSearch}>
                         <div className="global-search-div">
@@ -122,17 +138,15 @@ export default class GlobalSearch extends React.Component {
                             </button>
                         </div>
                     </form>
-                    <div className="container">
-                        {
-                        this.generateSearchResults()
-                        }
+                    <div className="global-search-container">
+                        { this.generateSearchResults() }
                     </div>
                 </div>
             )
         } 
-    else {
+        else {
             return(
-                <div>
+                <div className="body">
                     <Nav title={'/dashboard/:user_id'}/>
                     <form className="search-form" onSubmit={this.globalSearch}>
                         <div className="global-search-div">
@@ -151,10 +165,7 @@ export default class GlobalSearch extends React.Component {
                             </button>
                         </div>
                     </form>
-
-                    <div className="container">
-                        { this.generateGameInfo() }
-                    </div>
+                    { this.generateSelectedGameInfo() }
                 </div>
             )
         }
