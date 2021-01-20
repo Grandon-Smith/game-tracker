@@ -24,21 +24,22 @@ export default class Dashboard extends React.Component {
             `/dashboard/${this.props.match.params.user_id}/${this.state.search}`)
     }
 
-    componentDidMount() {
-        fetch('some-url.com')
-        .then(res => {
-            if(!res.ok) {
-                console.log('oh dear, can\'t get user data')
-            }
-            return res
-        })
-        .then(res => {
-            console.log(res)
-        })
-        .catch(err => 
-            console.error(err)
-        )
-    }
+
+    // componentDidMount() {
+    //     fetch('some-url.com')
+    //     .then(res => {
+    //         if(!res.ok) {
+    //             console.log('oh dear, can\'t get user data')
+    //         }
+    //         return res
+    //     })
+    //     .then(res => {
+    //         console.log(res)
+    //     })
+    //     .catch(err => 
+    //         console.error(err)
+    //     )
+    // }
 
 
     render() {
@@ -64,7 +65,10 @@ export default class Dashboard extends React.Component {
                             </button>
                         </div>
                     </form>
-                    <UserLibrary GAMES={this.state.followedGames}/>
+                    <UserLibrary 
+                        GAMES={this.state.followedGames}
+                        path={this.props}
+                    />
                 </div>
             </div>
         )

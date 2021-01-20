@@ -4,6 +4,7 @@ import "./GlobalSearch.css"
 import Nav from '../Nav/Nav';
 import search from '../pics/magnifying-glass.webp'
 // import UserLibrary from '../UserLibrary/UserLibrary'
+import Utils from '../utils'
 
 
 export default class GlobalSearch extends React.Component {
@@ -15,13 +16,6 @@ export default class GlobalSearch extends React.Component {
            selectedGame: [],
         }
     }
-
-    // clickGame = (key) => {
-    //     console.log(key)
-    //     this.setState({
-    //         selected: true
-    //     })
-    // }
 
     componentDidMount() {
         const title = this.state.search
@@ -98,7 +92,6 @@ export default class GlobalSearch extends React.Component {
 
     generateSelectedGameInfo = () => {
         const game = this.state.selectedGame;
-        console.log(game)
         return game.map((game, idx) => 
             <div key={idx} className="game-info">
                 <h3>{game.title}</h3>
