@@ -2,14 +2,13 @@ import React from 'react';
 import './UserLibrary.css'
 import {Link} from 'react-router-dom'
 import search from '../pics/magnifying-glass.webp'
-import GAMES from '../STORE'
 
 
 export default class UserLibrary extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-           userGames: GAMES
+           userGames: this.props.GAMES
         }
     }
     componentDidMount() {
@@ -17,7 +16,7 @@ export default class UserLibrary extends React.Component {
     }
 
     render() {
-
+        console.log(this.props.GAMES)
         const gameList = this.state.userGames.map((game, idx) => {
             return (
                 <Link to={`/dashboard/user_id/${idx}`} key={idx} className="game" >

@@ -1,14 +1,15 @@
 import React from 'react';
+import './CreateAccount.css';
 import Nav from '../Nav/Nav';
-import './LoginForm.css';
 import { Link } from 'react-router-dom'
 
-export default function LoginForm() {
+export default function CreateAccount() {
     return (
         <div className="login-container">
+            <Nav title={'/'}/>
             <form>
                 <fieldset className="login-form">
-                    <legend>Login:</legend>
+                    <legend>Create Account:</legend>
                     <label htmlFor="username" name="username">Username: </label>
                     <input id="username" type="text"/>
                     <label htmlFor="password" name="password">Password: </label>
@@ -23,7 +24,6 @@ export default function LoginForm() {
                     <Link to={"/create-account"}>
                         <button type="button">Create Account</button>
                     </Link>
-                    <button type="submit">Log in</button>
                 </fieldset>
             </form>
         </div>

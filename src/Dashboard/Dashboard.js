@@ -4,6 +4,8 @@ import "./Dashboard.css"
 import Nav from '../Nav/Nav';
 import search from '../pics/magnifying-glass.webp'
 import UserLibrary from '../UserLibrary/UserLibrary'
+import GAMES from '../STORE'
+
 
 
 export default class Dashboard extends React.Component {
@@ -12,6 +14,7 @@ export default class Dashboard extends React.Component {
         this.state = {
            search: "",
            gameList: [],
+           followedGames: GAMES,
         }
     }
 
@@ -19,6 +22,22 @@ export default class Dashboard extends React.Component {
         e.preventDefault()
         this.props.history.push(
             `/dashboard/${this.props.match.params.user_id}/${this.state.search}`)
+    }
+
+    componentDidMount() {
+        fetch('some-url.com')
+        .then(res => {
+            if(!res.ok) {
+                console.log('oh dear, can\'t get user data')
+            }
+            return res
+        })
+        .then(res => {
+            console.log(res)
+        })
+        .catch(err => 
+            console.error(err)
+        )
     }
 
 
@@ -45,7 +64,7 @@ export default class Dashboard extends React.Component {
                             </button>
                         </div>
                     </form>
-                    <UserLibrary />
+                    <UserLibrary GAMES={this.state.followedGames}/>
                 </div>
             </div>
         )
