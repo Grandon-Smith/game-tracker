@@ -62,17 +62,17 @@ class App extends Component {
                 exact path='/dashboard/:user_id'
                 component={Dashboard}
               />
-              <Route 
+              {/* <Route 
                 exact path='/dashboard/:user_id/:gameID'
                 component={Dashboard}
-              />
+              /> */}
               <Route
                 exact path='/dashboard/:user_id/:search'
                 component={GlobalSearch}
               />
               <Route
-              exact path='/dashboard/:user_id/:search/:gameID'
-              component={GlobalSearch}
+                exact path='/dashboard/:user_id/:search/:gameID'
+                component={GlobalSearch}
               />
             </Switch>
           </div>

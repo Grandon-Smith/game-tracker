@@ -43,7 +43,7 @@ export default class Dashboard extends React.Component {
 
 
     render() {
-        console.log(this)
+        console.log(this.state)
         return (
             <div>
                 <Nav title={`/dashboard/${this.props.match.params.user_id}`}/>

@@ -4,7 +4,7 @@ import "./GlobalSearch.css"
 import Nav from '../Nav/Nav';
 import search from '../pics/magnifying-glass.webp'
 // import UserLibrary from '../UserLibrary/UserLibrary'
-import Utils from '../utils'
+// import Utils from '../utils'
 
 
 export default class GlobalSearch extends React.Component {
@@ -110,7 +110,7 @@ export default class GlobalSearch extends React.Component {
 
     render() {
         console.log(this)
-        if(!this.props.match.params.gameID){
+        if(this.props.match.path ==='/dashboard/:user_id/:search'){
             return (
                 <div className="body">
                     <Nav title={'/dashboard/:user_id'}/>

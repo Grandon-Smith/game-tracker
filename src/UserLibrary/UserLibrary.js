@@ -19,9 +19,6 @@ export default class UserLibrary extends React.Component {
 
     getSelectedLibraryGameInfo = (e) => {
         const id = parseInt(e.currentTarget.id)
-        console.log(id)
-        // const id = this.props.path.match.params.gameID
-        // const id = this.state.gameID
         const matchingGame = this.state.gameList.filter(game => parseInt(id) === parseInt(game.gameID))
         const game = matchingGame.filter(game => game.isOnSale === "1")
         this.setState({
@@ -49,14 +46,13 @@ export default class UserLibrary extends React.Component {
                
                 <a href={`https://www.cheapshark.com/redirect?dealID=${game.dealID}`} rel="noreferrer" target="_blank">Buy the Game</a>
                 <button onClick={() => this.props.path.history.push(`/dashboard/${this.props.path.match.params.user_id}`)}>Close</button>
-                <button onClick={() => this.addGameToUserList(game.gameID)}>Add to Watch List</button>
+                <button onClick={() => this.removeGameFromUserList(game.gameID)}>Remove From Watchlist</button>
             </div>
         )
     }
 
 
     render() {
-        // console.log(this.props)
         const gameList = this.state.gameList.map((game, idx) => {
             return (
                 <Link 
@@ -73,7 +69,7 @@ export default class UserLibrary extends React.Component {
                 </Link>
             )
         })
-        if(!this.props.path.match.params.gameID){
+        if(this.props.path.match.path === '/dashboard/:user_id'){
             return (
                 <div className="user-library-wrapper">
                     <section className="game-search">
@@ -94,8 +90,8 @@ export default class UserLibrary extends React.Component {
                     </div>
                 </div>
             )
-        } else {
-            console.log(this.state)
+        } 
+        else if(this.props.path.match.path ==='/dashboard/:user_id/:gameID') {
             return (
                 this.generateSelectedLibraryGameInfo()
             )
