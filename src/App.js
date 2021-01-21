@@ -6,6 +6,8 @@ import LoginScreen from './LoginScreen/LoginScreen';
 import Dashboard from './Dashboard/Dashboard';
 import GlobalSearch from './GlobalSearch/GlobalSearch';
 import CreateAccount from './CreateAccount/CreateAccount'
+import DashboardGame from './DashboardGame/DashboardGame'
+
 
 class App extends Component {
   constructor(props) {
@@ -62,16 +64,16 @@ class App extends Component {
                 exact path='/dashboard/:user_id'
                 component={Dashboard}
               />
-              {/* <Route 
-                exact path='/dashboard/:user_id/:gameID'
+              <Route 
+                exact path='/dashboard/game/:gameId'
                 component={Dashboard}
-              /> */}
+              />
               <Route
                 exact path='/dashboard/:user_id/:search'
                 component={GlobalSearch}
               />
               <Route
-                exact path='/dashboard/:user_id/:search/:gameID'
+                exact path='/dashboard/:user_id/:search/:gameId'
                 component={GlobalSearch}
               />
             </Switch>
