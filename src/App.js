@@ -5,8 +5,7 @@ import Welcome from './Welcome/Welcome';
 import LoginScreen from './LoginScreen/LoginScreen';
 import Dashboard from './Dashboard/Dashboard';
 import GlobalSearch from './GlobalSearch/GlobalSearch';
-import CreateAccount from './CreateAccount/CreateAccount'
-import DashboardGame from './DashboardGame/DashboardGame'
+import CreateAccount from './CreateAccount/CreateAccount';
 
 
 class App extends Component {

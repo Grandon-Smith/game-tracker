@@ -22,7 +22,7 @@ export default class DashboardGame extends React.Component {
                 <h5>Sale Price: ${game.salePrice}</h5>
             
                 <a href={`https://www.cheapshark.com/redirect?dealID=${game.dealID}`} rel="noreferrer" target="_blank">Buy the Game</a>
-                <button onClick={ () => this.props.data.history.push(`/dashboard/${this.props.data.match.params.user_id}`)}>Close</button>
+                <button onClick={ this.props.goBack }>Close</button>
                 <button onClick={ () => this.removeGameFromUserList(game.gameID)}>Remove From Watchlist</button>
             </div>
         )

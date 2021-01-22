@@ -42,12 +42,15 @@ export default class Dashboard extends React.Component {
     //         console.error(err)
     //     )
     }
-
+    goBack = (e) => {
+        console.log('oh dear')
+        this.props.history.goBack()
+    }
 
     getSelectedLibraryGameInfo = (e) => {
         const id = parseInt(e.currentTarget.id)
-        const matchingGame = this.state.gameList.filter(game => parseInt(id) === parseInt(game.gameID))
-        const game = matchingGame.filter(game => game.isOnSale === "1")
+        // const matchingGame = this.state.gameList.filter(game => parseInt(id) === parseInt(game.gameID))
+        // const game = matchingGame.filter(game => game.isOnSale === "1")
         this.setState({
             gameId: id,
         })
@@ -82,6 +85,7 @@ export default class Dashboard extends React.Component {
                             GAMES={this.state.gameList}
                             data={this.props}
                             getSelectedLibraryGameInfo={this.getSelectedLibraryGameInfo}
+
                         />
                     </div>
                 </div>
@@ -93,6 +97,7 @@ export default class Dashboard extends React.Component {
                 <DashboardGame 
                     stateData={ this.state }
                     propData={ this.props }
+                    goBack={this.goBack}
                 />
             </div>
             
