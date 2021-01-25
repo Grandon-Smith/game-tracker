@@ -41,15 +41,16 @@ export default class GlobalSearch extends React.Component {
                 console.error(error)
             })
             .then(res => {
-                if(this.props.match.params.gameID) {
+                if(this.props.match.params.gameId) {
                     const matchingGame = this.state.gameList.filter(
-                            game => parseInt(this.props.match.params.gameID) === parseInt(game.gameID) )
+                            game => parseInt(this.props.match.params.gameId) === parseInt(game.gameID) )
                     const game = matchingGame.filter(game => game.isOnSale === "1")
                     this.setState({
                         selectedGame: game
                     })
                 }
             })
+            .then(this.generateSelectedGameInfo)
     }
 
     generateSearchResults = () => {
@@ -86,8 +87,8 @@ export default class GlobalSearch extends React.Component {
         })
     }
 
-    addGameToUserList = () => {
-
+    addGameToWatchList = () => {
+        
     }
 
     generateSelectedGameInfo = () => {
@@ -103,7 +104,7 @@ export default class GlobalSearch extends React.Component {
                
                 <a href={`https://www.cheapshark.com/redirect?dealID=${game.dealID}`} rel="noreferrer" target="_blank">Buy the Game</a>
                 <button onClick={() => this.props.history.push(`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}`)}>Go Back</button>
-                <button onClick={() => this.addGameToUserList(game.gameID)}>Add to Watch List</button>
+                <button onClick={() => this.addGameToWatchList(game.gameID)}>Add to Watch List</button>
             </div>
         )
     }
@@ -137,7 +138,7 @@ export default class GlobalSearch extends React.Component {
                 </div>
             )
         } 
-        else {
+        else if (this.props.match.path ==='/dashboard/:user_id/:search/:gameId') {
             return(
                 <div className="body">
                     <Nav title={'/dashboard/:user_id'}/>
