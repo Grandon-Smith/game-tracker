@@ -18,13 +18,13 @@ export default class LoginForm extends React.Component {
                 <form onSubmit={e => this.props.login(e, this.state.loginUsername, this.state.loginPassword)}>
                     <fieldset className="login-form">
                         <legend>Login:</legend>
-                        <label htmlFor="username" name="username">Username: </label>
+                        <label htmlFor="username">Username: </label>
                         <input 
                             id="username" 
                             type="text"
                             onChange={e => this.setState({loginUsername: e.target.value})}
                         />
-                        <label htmlFor="password" name="password">Password: </label>
+                        <label htmlFor="password">Password: </label>
                         <input 
                             id="password" 
                             type="password" 

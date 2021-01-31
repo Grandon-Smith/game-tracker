@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component} from 'react'
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import Welcome from './Welcome/Welcome';
@@ -18,31 +18,6 @@ class App extends Component {
     }
 }
 
-  globalSearch = (e) => {
-    e.preventDefault()
-    const title = this.state.search
-    fetch(`https://www.cheapshark.com/api/1.0/deals?title=${title}`)
-        .then(res => {
-            if(!res.ok)
-                console.log('error fetching games')
-            return res.json()
-        })
-        .then(res => {
-            if(res.length < 1)
-            console.log('there are no games with that title')
-            return res
-        })
-        .then(res => {
-            if(res.length > 0)
-            this.setState({
-                gameList: res
-            })
-        })
-        .catch(error => {
-            console.error(error)
-        })
-}
-
     render() {
         return (
           <div className="App">
@@ -52,8 +27,7 @@ class App extends Component {
                 component={Welcome}
               />
               <Route
-                exact path='/login'
-                component={LoginScreen}
+                exact path='/login' 
               />
               <Route
                 exact path='/create-account'
