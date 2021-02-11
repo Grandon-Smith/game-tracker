@@ -30,7 +30,7 @@ export default class LoginForm extends React.Component {
                             type="password" 
                             name="password" 
                             onChange={e => this.setState({loginPassword: e.target.value})}
-                            // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                             title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
                             required
                         />

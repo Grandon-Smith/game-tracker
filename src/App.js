@@ -27,7 +27,8 @@ class App extends Component {
                 component={Welcome}
               />
               <Route
-                exact path='/login' 
+                exact path='/login'
+                component={LoginScreen}
               />
               <Route
                 exact path='/create-account'
