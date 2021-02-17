@@ -2,11 +2,12 @@ import React from 'react';
 import './Welcome.css';
 import Nav from '../Nav/Nav';
 import controller from '../pics/holding-controller.jpg'
-import graph from '../pics/graph.jpg'
+import graph from '../pics/graph.jpg';
+import Button from '../button'
 
 
 
-export default function Welcome() {
+export default function Welcome(props) {
     return (
         <div>
             <Nav title={'/'}/>
