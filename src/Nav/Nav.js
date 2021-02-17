@@ -5,12 +5,17 @@ import {Link} from 'react-router-dom'
 export default function Nav(props) {
     return (
         <header className="nav-header">
-            <h1>
-                <a href={props.title}>Game Saver</a>
-            </h1>
+            
             <nav>
-                <Link to={'/login'}>
-                    <input type="button" value="log in"/>
+                <h1>
+                    <a href={props.title}>Game Saver</a>
+                </h1>
+                <Link to={props.routerUrl} className={props.hidden}>
+                    <input 
+                        type="button" 
+                        value={props.buttonText} 
+                        onClick={e => props.click}
+                    />
                 </Link>
             </nav>
         </header>

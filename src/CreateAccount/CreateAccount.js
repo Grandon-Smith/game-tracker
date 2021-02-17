@@ -1,7 +1,7 @@
 import React from 'react';
 import './CreateAccount.css';
 import Nav from '../Nav/Nav';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 export default class CreateAccount extends React.Component {
     constructor(props) {

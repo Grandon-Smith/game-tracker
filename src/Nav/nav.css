@@ -31,3 +31,7 @@
 .nav-header > h1, a:hover {
     color: blue;
 }
+
+.hide-nav {
+    display: none;
+}

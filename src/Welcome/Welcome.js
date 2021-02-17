@@ -3,14 +3,18 @@ import './Welcome.css';
 import Nav from '../Nav/Nav';
 import controller from '../pics/holding-controller.jpg'
 import graph from '../pics/graph.jpg';
-import Button from '../button'
+// import Button from '../button'
 
 
 
 export default function Welcome(props) {
     return (
         <div>
-            <Nav title={'/'}/>
+            <Nav 
+                title={'/'}
+                buttonText={'Log In'}
+                routerUrl={'/login'}
+            />
             <div className="welcome-container">
                 <section className="sec-1">
                     <img src={graph} alt="man holding an xbox controller."/>

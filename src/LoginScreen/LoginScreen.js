@@ -19,20 +19,29 @@ export default class LoginScreen extends React.Component {
                 "password": pass,
             })
         })
+        .then(res => res.json())
         .then(res => {
-            if(!res.ok) {
+            if(!res.user) {
                 console.log("oh no")
+                return
             }
-            console.log(res)
+            console.log("RE-DIRECTING")
+            sessionStorage.setItem('user', 'true')
+            this.props.history.push(`/dashboard/${res.user.email}`)
         })
+        .catch(err => console.log(err))
 
     }
 
     render() {
-
+        console.log(this.props)
         return (
             <div>
-                <Nav title={'/'}/>
+                <Nav 
+                    title={'/'}
+                    routerUrl={'/'}
+                    hidden={'hide-nav'}
+                />
                 <LoginForm login={this.login}/>
             </div>
         )

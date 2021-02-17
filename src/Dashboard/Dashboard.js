@@ -5,7 +5,8 @@ import Nav from '../Nav/Nav';
 import search from '../pics/magnifying-glass.webp'
 import UserLibrary from '../UserLibrary/UserLibrary'
 import DashboardGame from '../DashboardGame/DashboardGame'
-import GAMES from '../STORE'
+import GAMES from '../STORE';
+import Utils from '../utils'
 
 
 
@@ -19,6 +20,10 @@ export default class Dashboard extends React.Component {
         //    gameIsSelected: this.props.match.params.gameId ? true : false,
         }
     }
+
+    // logout = () => {
+    //     sessionStorage.removeItem('user')
+    // }
 
     globalSearch = (e) => {
         e.preventDefault()
@@ -58,10 +63,19 @@ export default class Dashboard extends React.Component {
 
     render() {
         console.log(this)
+        if(!sessionStorage.getItem('user')) {
+            this.props.history.push('/login')
+        }
         if(this.props.match.path === "/dashboard/:user_id")
             return (
                 <div>
-                    <Nav title={`/dashboard/${this.props.match.params.user_id}`}/>
+                    <Nav 
+                        title={`/dashboard/${this.props.match.params.user_id}`}
+                        routerUrl={'/'}
+                        buttonText={'Log out'}
+                        click={Utils.logout}
+                        // hidden={'hide-nav'}
+                    />
                     <div className="dashboard-container">
                         <form className="search-form" onSubmit={this.globalSearch}>
                             <div className="global-search-div">
