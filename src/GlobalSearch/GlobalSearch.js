@@ -87,8 +87,24 @@ export default class GlobalSearch extends React.Component {
         })
     }
 
-    addGameToWatchList = () => {
-        
+    addGameToWatchList = (gameid) => {
+        fetch('http://localhost:8000/addgame'
+        , {
+            method: 'POST',
+            headers: new Headers({
+                "Accept": "application/json",
+                'Content-Type': 'application/json'
+            }),
+            body: JSON.stringify({
+                "email": sessionStorage.user,
+                "gameid": gameid,
+            })
+        })
+        // .then(res => res.json())
+        .then(res => {
+            console.log(res)
+        })
+        .catch(err => console.log(err))
     }
 
     generateSelectedGameInfo = () => {
@@ -110,7 +126,6 @@ export default class GlobalSearch extends React.Component {
     }
 
     render() {
-        console.log(this)
         if(!sessionStorage.getItem('user')) {
             this.props.history.push('/login')
         }
@@ -141,7 +156,7 @@ export default class GlobalSearch extends React.Component {
                         </div>
                     </form>
                     <div className="global-search-container">
-                        { this.generateSearchResults() }
+                        { this.generateSearchResults(this.state.gameList, this.props) }
                     </div>
                 </div>
             )

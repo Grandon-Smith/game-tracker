@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 
 export default function Nav(props) {
-    console.log(typeof props.click)
     return (
         <header className="nav-header">
             

@@ -2,7 +2,7 @@ import React from 'react';
 import './LoginScreen.css';
 import Nav from '../Nav/Nav';
 import LoginForm from '../LoginForm/LoginForm'
-import Utils from '../utils'
+// import Utils from '../utils'
 
 
 export default class LoginScreen extends React.Component {
@@ -27,7 +27,7 @@ export default class LoginScreen extends React.Component {
                 return
             }
             console.log("RE-DIRECTING")
-            sessionStorage.setItem('user', 'true')
+            sessionStorage.setItem('user', email)
             this.props.history.push(`/dashboard/${res.user.email}`)
         })
         .catch(err => console.log(err))

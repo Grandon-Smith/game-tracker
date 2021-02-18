@@ -21,10 +21,6 @@ export default class Dashboard extends React.Component {
         }
     }
 
-    // logout = () => {
-    //     sessionStorage.removeItem('user')
-    // }
-
     globalSearch = (e) => {
         e.preventDefault()
         this.props.history.push(
