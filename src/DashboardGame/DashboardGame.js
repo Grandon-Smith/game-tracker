@@ -21,7 +21,7 @@ export default class DashboardGame extends React.Component {
         }));
     }
 
-    followGame = (e) => {
+    setPriceAlert = (e) => {
         e.preventDefault()
         let email = this.state.userEmail;
         let gameId = this.props.propData.match.params.gameId;
@@ -37,7 +37,7 @@ export default class DashboardGame extends React.Component {
 
     followGameForm() {
         return(
-            <form onSubmit={this.followGame}>
+            <form onSubmit={this.setPriceAlert}>
                 <fieldset>
                     <legend>Set price for alert: </legend>
                     <label 

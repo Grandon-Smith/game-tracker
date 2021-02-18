@@ -29,20 +29,28 @@ export default class Dashboard extends React.Component {
 
     // CALL FOR USER FOLLWED GAMES
     componentDidMount() {
-    //     fetch('some-url.com')
-    //     .then(res => {
-    //         if(!res.ok) {
-    //             console.log('oh dear, can\'t get user data')
-    //         }
-    //         return res
-    //     })
-    //     .then(res => {
-    //         console.log(res)
-    //     })
-    //     .catch(err => 
-    //         console.error(err)
-    //     )
+        const user = sessionStorage.user
+        fetch('http://localhost:8000/usergames', {
+            method: 'POST',
+            headers: new Headers({
+                "Accept": "application/json",
+                'Content-Type': 'application/json',
+            }),
+            body: JSON.stringify({
+                "email": user
+            })
+        })
+        .then(res => res.json())
+        .then(stuff => {
+            console.log(stuff)
+        })
+        .catch(err => 
+            console.error(err)
+        )
     }
+
+
+
     goBack = (e) => {
         console.log('oh dear')
         this.props.history.goBack()
@@ -50,8 +58,6 @@ export default class Dashboard extends React.Component {
 
     getSelectedLibraryGameInfo = (e) => {
         const id = parseInt(e.currentTarget.id)
-        // const matchingGame = this.state.gameList.filter(game => parseInt(id) === parseInt(game.gameID))
-        // const game = matchingGame.filter(game => game.isOnSale === "1")
         this.setState({
             gameId: id,
         })
@@ -62,6 +68,7 @@ export default class Dashboard extends React.Component {
         if(!sessionStorage.getItem('user')) {
             this.props.history.push('/login')
         }
+
         if(this.props.match.path === "/dashboard/:user_id")
             return (
                 <div>
@@ -112,7 +119,7 @@ export default class Dashboard extends React.Component {
                 <DashboardGame 
                     stateData={ this.state }
                     propData={ this.props }
-                    goBack={this.goBack}
+                    goBack={ this.goBack }
                 />
             </div>
             
