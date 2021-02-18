@@ -107,7 +107,12 @@ export default class Dashboard extends React.Component {
         else if(this.props.match.path === "/dashboard/game/:gameId") {
             return (
             <div>
-                <Nav title={`/dashboard/${this.props.match.params.user_id}`}/>
+                <Nav 
+                    title={`/dashboard/${this.props.match.params.user_id}`}
+                    routerUrl={'/'}
+                    buttonText={'Log out'}
+                    click={Utils.logout}
+                />
                 <DashboardGame 
                     stateData={ this.state }
                     propData={ this.props }

@@ -1,8 +1,10 @@
 import React from 'react';
 import './nav.css'
+import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 
 export default function Nav(props) {
+    console.log(typeof props.click)
     return (
         <header className="nav-header">
             
@@ -14,7 +16,11 @@ export default function Nav(props) {
                     <input 
                         type="button" 
                         value={props.buttonText} 
-                        onClick={e => props.click}
+                        onClick={ 
+                            props.click 
+                            ? e => props.click(e) 
+                            : null
+                        }
                     />
                 </Link>
             </nav>

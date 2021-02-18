@@ -4,7 +4,7 @@ import "./GlobalSearch.css"
 import Nav from '../Nav/Nav';
 import search from '../pics/magnifying-glass.webp'
 // import UserLibrary from '../UserLibrary/UserLibrary'
-// import Utils from '../utils'
+import Utils from '../utils'
 
 
 export default class GlobalSearch extends React.Component {
@@ -111,10 +111,18 @@ export default class GlobalSearch extends React.Component {
 
     render() {
         console.log(this)
+        if(!sessionStorage.getItem('user')) {
+            this.props.history.push('/login')
+        }
         if(this.props.match.path ==='/dashboard/:user_id/:search'){
             return (
                 <div className="body">
-                    <Nav title={'/dashboard/:user_id'}/>
+                    <Nav 
+                        title={`/dashboard/${this.props.match.params.user_id}`}
+                        routerUrl={'/'}
+                        buttonText={'Log out'}
+                        click={Utils.logout}
+                    />
                     <form className="search-form" onSubmit={this.globalSearch}>
                         <div className="global-search-div">
                             <input
@@ -141,7 +149,12 @@ export default class GlobalSearch extends React.Component {
         else if (this.props.match.path ==='/dashboard/:user_id/:search/:gameId') {
             return(
                 <div className="body">
-                    <Nav title={'/dashboard/:user_id'}/>
+                    <Nav 
+                        title={`/dashboard/${this.props.match.params.user_id}`}
+                        routerUrl={'/'}
+                        buttonText={'Log out'}
+                        click={Utils.logout}
+                    />
                     <form className="search-form" onSubmit={this.globalSearch}>
                         <div className="global-search-div">
                             <input
