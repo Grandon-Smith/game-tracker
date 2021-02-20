@@ -15,9 +15,9 @@ export default class Dashboard extends React.Component {
         super(props)
         this.state = {
            search: "",
-           gameList: GAMES,
+           gameList: [],
+           fetching: true,
            gameId: this.props.match.params.gameId,
-        //    gameIsSelected: this.props.match.params.gameId ? true : false,
         }
     }
 
@@ -28,31 +28,40 @@ export default class Dashboard extends React.Component {
     }
 
     // CALL FOR USER FOLLWED GAMES
-    componentDidMount() {
+    async componentDidMount() {
         const user = sessionStorage.user
-        fetch('http://localhost:8000/usergames', {
-            method: 'POST',
-            headers: new Headers({
-                "Accept": "application/json",
-                'Content-Type': 'application/json',
-            }),
-            body: JSON.stringify({
-                "email": user
+            await fetch('http://localhost:8000/usergames', {
+                method: 'POST',
+                headers: new Headers({
+                    "Accept": "application/json",
+                    'Content-Type': 'application/json',
+                }),
+                body: JSON.stringify({
+                    "email": user
+                })
             })
-        })
-        .then(res => res.json())
-        .then(stuff => {
-            console.log(stuff)
-        })
-        .catch(err => 
-            console.error(err)
-        )
+            .then(res => res.json())
+            .then(stuff => {
+                let arr = stuff.map(a => `${a.gameid.toString()},`).join('')
+                arr = arr.slice(0, -1)
+                const url = `https://www.cheapshark.com/api/1.0/games?ids=`.concat(arr)
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        this.setState({
+                            gameList: Object.entries(data),
+                            fetching: false
+                        })
+                    })
+            })
+            .catch(err => 
+                console.error(err)
+            )
     }
 
 
 
     goBack = (e) => {
-        console.log('oh dear')
         this.props.history.goBack()
     }
 
@@ -64,7 +73,6 @@ export default class Dashboard extends React.Component {
     }
 
     render() {
-        console.log(this)
         if(!sessionStorage.getItem('user')) {
             this.props.history.push('/login')
         }
@@ -73,7 +81,7 @@ export default class Dashboard extends React.Component {
             return (
                 <div>
                     <Nav 
-                        title={`/dashboard/${this.props.match.params.user_id}`}
+                        title={`/dashboard/${sessionStorage.user}`}
                         routerUrl={'/'}
                         buttonText={'Log out'}
                         click={Utils.logout}
@@ -99,7 +107,7 @@ export default class Dashboard extends React.Component {
                         </form>
 
                         <UserLibrary 
-                            GAMES={this.state.gameList}
+                            stateData={this.state}
                             data={this.props}
                             getSelectedLibraryGameInfo={this.getSelectedLibraryGameInfo}
 
@@ -111,7 +119,7 @@ export default class Dashboard extends React.Component {
             return (
             <div>
                 <Nav 
-                    title={`/dashboard/${this.props.match.params.user_id}`}
+                    title={`/dashboard/${sessionStorage.user}`}
                     routerUrl={'/'}
                     buttonText={'Log out'}
                     click={Utils.logout}

@@ -23,7 +23,7 @@ export default class DashboardGame extends React.Component {
 
     setPriceAlert = (e) => {
         e.preventDefault()
-        let email = this.state.userEmail;
+        let email = sessionStorage.user;
         let gameId = this.props.propData.match.params.gameId;
         let gamePrice = this.state.gamePrice;
         let setUrl = `https://www.cheapshark.com/api/1.0/alerts?action=set&email=${email}&gameID=${gameId}&price=${gamePrice}`
@@ -67,7 +67,11 @@ export default class DashboardGame extends React.Component {
         )
     }
     
-    generateSelectedLibraryGameInfo = () => {
+    async generateSelectedLibraryGameInfo() {
+        console.log(this.props.stateData)
+        // let res = await fetch()
+
+
         let game = this.props.stateData.gameList.filter(game => parseInt(this.props.stateData.gameId) === parseInt(game.gameID))
         // let matchingGame = this.state.gameList.filter(game => parseInt(this.props.propData.match.params.gameId) === parseInt(game.gameID))
         game = game.filter(game => game.isOnSale === "1")
@@ -92,7 +96,8 @@ export default class DashboardGame extends React.Component {
         )
     }
 
-    render() {        
+    render() {      
+        console.log("DASHBOARD GAME")
         return (
             this.generateSelectedLibraryGameInfo()
         )
