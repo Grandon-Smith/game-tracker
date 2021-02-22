@@ -5,7 +5,6 @@ import Nav from '../Nav/Nav';
 import search from '../pics/magnifying-glass.webp'
 import UserLibrary from '../UserLibrary/UserLibrary'
 import DashboardGame from '../DashboardGame/DashboardGame'
-import STORES from '../STORE';
 import Utils from '../utils'
 
 

@@ -70,21 +70,25 @@ export default class DashboardGame extends React.Component {
 
     getStoreName(storeNum) {
         let store = STORES.filter(s => parseInt(s.storeID) === parseInt(storeNum))
+        console.log(store)
         return (
-            <div className="store-data-wrapper">
-                <h3>{store[0].storeName}</h3>
-                <div className='store-img-wrapper'>
-                    <img 
-                        src={'https://www.cheapshark.com' + store[0].images.logo}
-                        alt={store[0].storeName + `company logo`}
-                    />
-                </div>
-            </div>
+            <h3>{store[0].storeName}</h3>
+                
+        )
+    }
+
+    getStoreImg(storeNum) {
+        let store = STORES.filter(s => parseInt(s.storeID) === parseInt(storeNum))
+        return (
+                <img 
+                    src={'https://www.cheapshark.com' + store[0].images.logo}
+                    alt={store[0].storeName + `company logo`}
+                />
         )
     }
 
     componentDidMount() {
-        console.log(this)
+        console.log('component did mount')
     }
     
     generateSelectedLibraryGameInfo() {
@@ -95,10 +99,23 @@ export default class DashboardGame extends React.Component {
             return (
                 <div key={idx} className="store-wrapper">
                     {this.getStoreName(store.storeID)}
-                    <div className="store-game-data-wrapper">
-                        <p>Current Price: {store.price}</p>
-                        <p>Retail Price: {store.retailPrice}</p>
-                        <p>Discount: {Math.floor(store.savings)+`%`}</p>
+                    <div className="store-info-wrapper">
+
+                        <div className='store-img-wrapper'>
+                            {this.getStoreImg(store.storeID)}
+                        </div>
+
+                        <div className="store-sale-data-wrapper">
+                            <p>Current Price: {store.price}</p>
+                            <p>Retail Price: {store.retailPrice}</p>
+                            <p>Discount: {Math.floor(store.savings)+`%`}</p>
+                            <a href={`https://www.cheapshark.com/redirect?dealID=`+store.dealID} target="_blank">
+                                <button>
+                                    Check Deal
+                                </button>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             )

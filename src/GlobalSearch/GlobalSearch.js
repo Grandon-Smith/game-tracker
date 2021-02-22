@@ -110,7 +110,7 @@ export default class GlobalSearch extends React.Component {
     generateSelectedGameInfo = () => {
         const game = this.state.selectedGame;
         return game.map((game, idx) => 
-            <div key={idx} className="game-info">
+            <div key={idx} className="game-info" id={idx}>
                 <h3>{game.title}</h3>
                 <img src={game.thumb} alt={`game cover of ${game.title}`}/>
                 <h5>Metacritic Score: {game.metacriticScore === 0 ? "--": game.metacriticScore}</h5>

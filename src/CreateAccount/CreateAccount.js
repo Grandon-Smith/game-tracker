@@ -39,7 +39,12 @@ export default class CreateAccount extends React.Component {
         console.log(this.state)
         return (
             <div className="login-container">
-                <Nav title={'/'}/>
+                <Nav 
+                    title={'/'}
+                    routerUrl={'/'}
+                    click={''}
+                    hidden={'hide-nav'}
+                />
                 <form onSubmit={e => this.createAcct(e, this.state.createEmail, this.state.createPassword)}>
                     <fieldset className="login-form">
                         <legend>Create Account:</legend>
