@@ -50,3 +50,13 @@
    width: auto;
    background-color: transparent;
 }
+
+.store-wrapper * {
+   border: 1px solid black;
+   margin: 5px;
+}
+
+.store-img-wrapper > img {
+   width: 30px;
+}
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import STORES from '../STORE';
 // import './UserLibrary.css'
 // import {Link} from 'react-router-dom'
 
@@ -66,40 +67,77 @@ export default class DashboardGame extends React.Component {
             </form>
         )
     }
-    
-    async generateSelectedLibraryGameInfo() {
-        console.log(this.props.stateData)
-        // let res = await fetch()
 
-
-        let game = this.props.stateData.gameList.filter(game => parseInt(this.props.stateData.gameId) === parseInt(game.gameID))
-        // let matchingGame = this.state.gameList.filter(game => parseInt(this.props.propData.match.params.gameId) === parseInt(game.gameID))
-        game = game.filter(game => game.isOnSale === "1")
-        return game.map((game, idx) => 
-            <div key={idx} className="game-info">
-                <h3>{game.title}</h3>
-                <img src={game.thumb} alt={`game cover of ${game.title}`}/>
-                <h5>Metacritic Score: {game.metacriticScore === 0 ? "--": game.metacriticScore}</h5>
-                <h5>Steam Rating: {game.steamRatingPercent === 0 ? "--": `${game.steamRatingPercent} % -- ${game.steamRatingText}`}</h5>
-                <h5>Normal Price: ${game.normalPrice}</h5>
-                <h5>Sale Price: ${game.salePrice}</h5>
-            
-                <a href={`https://www.cheapshark.com/redirect?dealID=${game.dealID}`} rel="noreferrer" target="_blank">Buy the Game</a>
-                <button onClick={ this.props.goBack }>Close</button>
-                <button onClick={ () => this.removeGameFromUserList(game.gameID)}>Remove From Watchlist</button>
-                <button onClick={() => this.ToggleButton()}>
-                  Set Price Alert
-                </button>
-                {this.state.textDisplay && this.followGameForm()}
-                {this.state.submitStatus && "game alert set!"}
+    getStoreName(storeNum) {
+        let store = STORES.filter(s => parseInt(s.storeID) === parseInt(storeNum))
+        return (
+            <div className="store-data-wrapper">
+                <h3>{store[0].storeName}</h3>
+                <div className='store-img-wrapper'>
+                    <img 
+                        src={'https://www.cheapshark.com' + store[0].images.logo}
+                        alt={store[0].storeName + `company logo`}
+                    />
+                </div>
             </div>
         )
     }
 
+    componentDidMount() {
+        console.log(this)
+    }
+    
+    generateSelectedLibraryGameInfo() {
+        let selectedGame = this.props.stateData.gameList.filter(game => game[0] === this.props.propData.match.params.gameId)
+        selectedGame = selectedGame[0][1].deals.sort(function(a, b){return b.savings-a.savings})
+        console.log(selectedGame)
+        let stores = selectedGame.map((store, idx) => {
+            return (
+                <div key={idx} className="store-wrapper">
+                    {this.getStoreName(store.storeID)}
+                    <div className="store-game-data-wrapper">
+                        <p>Current Price: {store.price}</p>
+                        <p>Retail Price: {store.retailPrice}</p>
+                        <p>Discount: {Math.floor(store.savings)+`%`}</p>
+                    </div>
+                </div>
+            )
+        })
+        // console.log(storeList)
+
+
+        // let game = this.props.stateData.gameList.filter(game => parseInt(this.props.stateData.gameId) === parseInt(game.gameID))
+        // let matchingGame = this.state.gameList.filter(game => parseInt(this.props.propData.match.params.gameId) === parseInt(game.gameID))
+        // storeList = game.filter(game => game.isOnSale === "1")
+        // return game.map((game, idx) => 
+        //     <div key={idx} className="game-info">
+        //         <h3>{game.title}</h3>
+        //         <img src={game.thumb} alt={`game cover of ${game.title}`}/>
+        //         <h5>Metacritic Score: {game.metacriticScore === 0 ? "--": game.metacriticScore}</h5>
+        //         <h5>Steam Rating: {game.steamRatingPercent === 0 ? "--": `${game.steamRatingPercent} % -- ${game.steamRatingText}`}</h5>
+        //         <h5>Normal Price: ${game.normalPrice}</h5>
+        //         <h5>Sale Price: ${game.salePrice}</h5>
+            
+        //         <a href={`https://www.cheapshark.com/redirect?dealID=${game.dealID}`} rel="noreferrer" target="_blank">Buy the Game</a>
+        //         <button onClick={ this.props.goBack }>Close</button>
+        //         <button onClick={() => this.removeGameFromUserList(game.gameID)}>Remove From Watchlist</button>
+        //         <button onClick={() => this.ToggleButton()}>
+        //           Set Price Alert
+        //         </button>
+        //         {this.state.textDisplay && this.followGameForm()}
+        //         {this.state.submitStatus && "game alert set!"}
+        //     </div>
+        // )
+        return stores
+    }
+
     render() {      
-        console.log("DASHBOARD GAME")
-        return (
-            this.generateSelectedLibraryGameInfo()
-        )
+        if(this.props.stateData.fetching === false) {
+            return (
+                <div>
+                    {this.generateSelectedLibraryGameInfo()}
+                </div>
+            )
+        } return(<div></div>)
     }
 }

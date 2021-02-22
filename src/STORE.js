@@ -1,194 +1,325 @@
-const GAMES = [
+const STORES = [
     {
-        "internalName": "CRYINGSUNS",
-        "title": "Crying Suns",
-        "metacriticLink": "/game/pc/crying-suns",
-        "dealID": "FJxHmvRbx9Zge61%2FkR%2BcyABWBdcFMaoqRkhuspfHL3g%3D",
-        "storeID": "25",
-        "gameID": "204616",
-        "salePrice": "0.00",
-        "normalPrice": "24.99",
-        "isOnSale": "1",
-        "savings": "100.000000",
-        "metacriticScore": "75",
-        "steamRatingText": "Very Positive",
-        "steamRatingPercent": "87",
-        "steamRatingCount": "1847",
-        "steamAppID": "873940",
-        "releaseDate": 1568764800,
-        "lastChange": 1610036229,
-        "dealRating": "10.0",
-        "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/873940/capsule_sm_120.jpg?t=1603787373"
+        "storeID": "1",
+        "storeName": "Steam",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/0.png",
+            "logo": "/img/stores/logos/0.png",
+            "icon": "/img/stores/icons/0.png"
+        }
     },
     {
-        "internalName": "JUSTCAUSECOLLECTION",
-        "title": "Just Cause Collection",
-        "metacriticLink": null,
-        "dealID": "5SyPGeHAsRHxFWOVsYUDXWQlyW%2FnKTdSGy%2Fq%2BafpwUY%3D",
+        "storeID": "2",
+        "storeName": "GamersGate",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/1.png",
+            "logo": "/img/stores/logos/1.png",
+            "icon": "/img/stores/icons/1.png"
+        }
+    },
+    {
+        "storeID": "3",
+        "storeName": "GreenManGaming",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/2.png",
+            "logo": "/img/stores/logos/2.png",
+            "icon": "/img/stores/icons/2.png"
+        }
+    },
+    {
+        "storeID": "4",
+        "storeName": "Amazon",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/3.png",
+            "logo": "/img/stores/logos/3.png",
+            "icon": "/img/stores/icons/3.png"
+        }
+    },
+    {
+        "storeID": "5",
+        "storeName": "GameStop",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/4.png",
+            "logo": "/img/stores/logos/4.png",
+            "icon": "/img/stores/icons/4.png"
+        }
+    },
+    {
+        "storeID": "6",
+        "storeName": "Direct2Drive",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/5.png",
+            "logo": "/img/stores/logos/5.png",
+            "icon": "/img/stores/icons/5.png"
+        }
+    },
+    {
+        "storeID": "7",
+        "storeName": "GOG",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/6.png",
+            "logo": "/img/stores/logos/6.png",
+            "icon": "/img/stores/icons/6.png"
+        }
+    },
+    {
+        "storeID": "8",
+        "storeName": "Origin",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/7.png",
+            "logo": "/img/stores/logos/7.png",
+            "icon": "/img/stores/icons/7.png"
+        }
+    },
+    {
+        "storeID": "9",
+        "storeName": "Get Games",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/8.png",
+            "logo": "/img/stores/logos/8.png",
+            "icon": "/img/stores/icons/8.png"
+        }
+    },
+    {
+        "storeID": "10",
+        "storeName": "Shiny Loot",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/9.png",
+            "logo": "/img/stores/logos/9.png",
+            "icon": "/img/stores/icons/9.png"
+        }
+    },
+    {
         "storeID": "11",
-        "gameID": "135693",
-        "salePrice": "9.56",
-        "normalPrice": "86.99",
-        "isOnSale": "1",
-        "savings": "89.010231",
-        "metacriticScore": "0",
-        "steamRatingText": null,
-        "steamRatingPercent": "0",
-        "steamRatingCount": "0",
-        "steamAppID": null,
-        "releaseDate": 0,
-        "lastChange": 1610046745,
-        "dealRating": "10.0",
-        "thumb": "https://images.greenmangaming.com/0dbac49bd5ea42228287080e3ca48961/b9e0399314124e70a34170b524b9ccff.jpg"
+        "storeName": "Humble Store",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/10.png",
+            "logo": "/img/stores/logos/10.png",
+            "icon": "/img/stores/icons/10.png"
+        }
     },
     {
-        "internalName": "DEUSEXHUMANREVOLUTIONDIRECTORSCUT",
-        "title": "Deus Ex: Human Revolution - Director's Cut",
-        "metacriticLink": "/game/pc/deus-ex-human-revolution---directors-cut",
-        "dealID": "mU%2FbH6z0MsHtcyqBBnv1C29aei%2FU0ZcsW0tNaZjC3xQ%3D",
-        "storeID": "11",
-        "gameID": "102249",
-        "salePrice": "2.99",
-        "normalPrice": "19.99",
-        "isOnSale": "1",
-        "savings": "85.042521",
-        "metacriticScore": "91",
-        "steamRatingText": "Very Positive",
-        "steamRatingPercent": "91",
-        "steamRatingCount": "16913",
-        "steamAppID": "238010",
-        "releaseDate": 1382400000,
-        "lastChange": 1610046772,
-        "dealRating": "9.6",
-        "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/238010/capsule_sm_120.jpg?t=1598390158"
+        "storeID": "12",
+        "storeName": "Desura",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/11.png",
+            "logo": "/img/stores/logos/11.png",
+            "icon": "/img/stores/icons/11.png"
+        }
     },
     {
-        "internalName": "THIEFDEADLYSHADOWS",
-        "title": "Thief: Deadly Shadows",
-        "metacriticLink": "/game/pc/thief-deadly-shadows",
-        "dealID": "o%2B%2BrqIdWwzuNmLvQ5E0XvveUfK8EBC%2BlpmYwMw73YH0%3D",
-        "storeID": "11",
-        "gameID": "396",
-        "salePrice": "0.98",
-        "normalPrice": "8.99",
-        "isOnSale": "1",
-        "savings": "89.098999",
-        "metacriticScore": "85",
-        "steamRatingText": "Very Positive",
-        "steamRatingPercent": "82",
-        "steamRatingCount": "1587",
-        "steamAppID": "6980",
-        "releaseDate": 1085443200,
-        "lastChange": 1610070509,
-        "dealRating": "9.6",
-        "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/6980/capsule_sm_120.jpg?t=1592493801"
+        "storeID": "13",
+        "storeName": "Uplay",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/12.png",
+            "logo": "/img/stores/logos/12.png",
+            "icon": "/img/stores/icons/12.png"
+        }
     },
     {
-        "internalName": "SYBERIAII",
-        "title": "Syberia II",
-        "metacriticLink": "/game/pc/syberia-ii",
-        "dealID": "TpBOhX2eDBs%2F8R6F64yzmHcmldnMsSMNVA1fnwtBPMg%3D",
-        "storeID": "30",
-        "gameID": "339",
-        "salePrice": "0.64",
-        "normalPrice": "12.99",
-        "isOnSale": "1",
-        "savings": "95.073133",
-        "metacriticScore": "80",
-        "steamRatingText": "Very Positive",
-        "steamRatingPercent": "86",
-        "steamRatingCount": "930",
-        "steamAppID": "46510",
-        "releaseDate": 1080604800,
-        "lastChange": 1610012164,
-        "dealRating": "9.6",
-        "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/46510/capsule_sm_120.jpg?t=1600874797"
+        "storeID": "14",
+        "storeName": "IndieGameStand",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/13.png",
+            "logo": "/img/stores/logos/13.png",
+            "icon": "/img/stores/icons/13.png"
+        }
     },
     {
-        "internalName": "THIEFIITHEMETALAGE",
-        "title": "Thief II: The Metal Age",
-        "metacriticLink": "/game/pc/thief-ii-the-metal-age",
-        "dealID": "6RYNLJUnRbHIRJ72H3T6ElJdLljBElIPeOgxkmli8W8%3D",
-        "storeID": "11",
-        "gameID": "87640",
-        "salePrice": "0.97",
-        "normalPrice": "6.99",
-        "isOnSale": "1",
-        "savings": "86.123033",
-        "metacriticScore": "87",
-        "steamRatingText": "Very Positive",
-        "steamRatingPercent": "93",
-        "steamRatingCount": "1123",
-        "steamAppID": "211740",
-        "releaseDate": 953769600,
-        "lastChange": 1610070513,
-        "dealRating": "9.5",
-        "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/211740/capsule_sm_120.jpg?t=1592493747"
-    },
-    {
-        "internalName": "JUSTCAUSE2",
-        "title": "Just Cause 2",
-        "metacriticLink": "/game/pc/just-cause-2",
-        "dealID": "Zuw5g7simZBKAGWw5HBDpJTkzM6VtQCs0X6PvE5PN7U%3D",
-        "storeID": "11",
-        "gameID": "180",
-        "salePrice": "1.49",
-        "normalPrice": "14.99",
-        "isOnSale": "1",
-        "savings": "90.060040",
-        "metacriticScore": "84",
-        "steamRatingText": "Very Positive",
-        "steamRatingPercent": "90",
-        "steamRatingCount": "34441",
-        "steamAppID": "8190",
-        "releaseDate": 1269302400,
-        "lastChange": 1610047060,
-        "dealRating": "9.4",
-        "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/8190/capsule_sm_120.jpg?t=1593180404"
-    },
-    {
-        "internalName": "DIRTRALLY",
-        "title": "DiRT Rally",
-        "metacriticLink": "/game/pc/dirt-rally",
-        "dealID": "MAPI1ui8vCtIQW%2Ft8ZLaKlswGjrO7Y4M1cTcJNZ5kTY%3D",
         "storeID": "15",
-        "gameID": "143429",
-        "salePrice": "1.00",
-        "normalPrice": "19.99",
-        "isOnSale": "1",
-        "savings": "94.997499",
-        "metacriticScore": "86",
-        "steamRatingText": "Very Positive",
-        "steamRatingPercent": "88",
-        "steamRatingCount": "18733",
-        "steamAppID": "310560",
-        "releaseDate": 1449446400,
-        "lastChange": 1610286525,
-        "dealRating": "9.4",
-        "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/310560/capsule_sm_120.jpg?t=1596056569"
+        "storeName": "Fanatical",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/14.png",
+            "logo": "/img/stores/logos/14.png",
+            "icon": "/img/stores/icons/14.png"
+        }
     },
     {
-        "internalName": "SYBERIA2",
-        "title": "Syberia 2",
-        "metacriticLink": null,
-        "dealID": "Iw7WAZYAzbfwADW7tbnhQ2Csd6mqRGeb0%2BwHF0xBpJ8%3D",
-        "storeID": "23",
-        "gameID": "3575",
-        "salePrice": "1.14",
-        "normalPrice": "12.99",
-        "isOnSale": "1",
-        "savings": "91.224018",
-        "metacriticScore": "82",
-        "steamRatingText": null,
-        "steamRatingPercent": "0",
-        "steamRatingCount": "0",
-        "steamAppID": null,
-        "releaseDate": 0,
-        "lastChange": 1610062392,
-        "dealRating": "9.4",
-        "thumb": "https://gamersgatep.imgix.net/e/0/1/627eb8e00b5fd46f6dad3789859718dc6b53610e.jpg?auto=format"
+        "storeID": "16",
+        "storeName": "Gamesrocket",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/15.png",
+            "logo": "/img/stores/logos/15.png",
+            "icon": "/img/stores/icons/15.png"
+        }
     },
+    {
+        "storeID": "17",
+        "storeName": "Games Republic",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/16.png",
+            "logo": "/img/stores/logos/16.png",
+            "icon": "/img/stores/icons/16.png"
+        }
+    },
+    {
+        "storeID": "18",
+        "storeName": "SilaGames",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/17.png",
+            "logo": "/img/stores/logos/17.png",
+            "icon": "/img/stores/icons/17.png"
+        }
+    },
+    {
+        "storeID": "19",
+        "storeName": "Playfield",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/18.png",
+            "logo": "/img/stores/logos/18.png",
+            "icon": "/img/stores/icons/18.png"
+        }
+    },
+    {
+        "storeID": "20",
+        "storeName": "ImperialGames",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/19.png",
+            "logo": "/img/stores/logos/19.png",
+            "icon": "/img/stores/icons/19.png"
+        }
+    },
+    {
+        "storeID": "21",
+        "storeName": "WinGameStore",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/20.png",
+            "logo": "/img/stores/logos/20.png",
+            "icon": "/img/stores/icons/20.png"
+        }
+    },
+    {
+        "storeID": "22",
+        "storeName": "FunStockDigital",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/21.png",
+            "logo": "/img/stores/logos/21.png",
+            "icon": "/img/stores/icons/21.png"
+        }
+    },
+    {
+        "storeID": "23",
+        "storeName": "GameBillet",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/22.png",
+            "logo": "/img/stores/logos/22.png",
+            "icon": "/img/stores/icons/22.png"
+        }
+    },
+    {
+        "storeID": "24",
+        "storeName": "Voidu",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/23.png",
+            "logo": "/img/stores/logos/23.png",
+            "icon": "/img/stores/icons/23.png"
+        }
+    },
+    {
+        "storeID": "25",
+        "storeName": "Epic Games Store",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/24.png",
+            "logo": "/img/stores/logos/24.png",
+            "icon": "/img/stores/icons/24.png"
+        }
+    },
+    {
+        "storeID": "26",
+        "storeName": "Razer Game Store",
+        "isActive": 0,
+        "images": {
+            "banner": "/img/stores/banners/25.png",
+            "logo": "/img/stores/logos/25.png",
+            "icon": "/img/stores/icons/25.png"
+        }
+    },
+    {
+        "storeID": "27",
+        "storeName": "Gamesplanet",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/26.png",
+            "logo": "/img/stores/logos/26.png",
+            "icon": "/img/stores/icons/26.png"
+        }
+    },
+    {
+        "storeID": "28",
+        "storeName": "Gamesload",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/27.png",
+            "logo": "/img/stores/logos/27.png",
+            "icon": "/img/stores/icons/27.png"
+        }
+    },
+    {
+        "storeID": "29",
+        "storeName": "2Game",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/28.png",
+            "logo": "/img/stores/logos/28.png",
+            "icon": "/img/stores/icons/28.png"
+        }
+    },
+    {
+        "storeID": "30",
+        "storeName": "IndieGala",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/29.png",
+            "logo": "/img/stores/logos/29.png",
+            "icon": "/img/stores/icons/29.png"
+        }
+    },
+    {
+        "storeID": "31",
+        "storeName": "Blizzard Shop",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/30.png",
+            "logo": "/img/stores/logos/30.png",
+            "icon": "/img/stores/icons/30.png"
+        }
+    },
+    {
+        "storeID": "32",
+        "storeName": "AllYouPlay",
+        "isActive": 1,
+        "images": {
+            "banner": "/img/stores/banners/31.png",
+            "logo": "/img/stores/logos/31.png",
+            "icon": "/img/stores/icons/31.png"
+        }
+    }
 
 ]
 
-module.exports = GAMES;
+module.exports = STORES;
