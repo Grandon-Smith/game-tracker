@@ -13,6 +13,7 @@ export default class DashboardGame extends React.Component {
             gamePrice: 0,
             userEmail: "",
             submitStatus: false,
+            gameData: null
         }
     }
 
@@ -70,7 +71,7 @@ export default class DashboardGame extends React.Component {
 
     getStoreName(storeNum) {
         let store = STORES.filter(s => parseInt(s.storeID) === parseInt(storeNum))
-        console.log(store)
+        // console.log(store)
         return (
             <h3>{store[0].storeName}</h3>
                 
@@ -88,7 +89,8 @@ export default class DashboardGame extends React.Component {
     }
 
     componentDidMount() {
-        console.log('component did mount')
+        let selectedGame = this.props.stateData.gameList.filter(game => game[0] === this.props.propData.match.params.gameId)
+        console.log(selectedGame)
     }
     
     generateSelectedLibraryGameInfo() {
@@ -109,7 +111,7 @@ export default class DashboardGame extends React.Component {
                             <p>Current Price: {store.price}</p>
                             <p>Retail Price: {store.retailPrice}</p>
                             <p>Discount: {Math.floor(store.savings)+`%`}</p>
-                            <a href={`https://www.cheapshark.com/redirect?dealID=`+store.dealID} target="_blank">
+                            <a href={`https://www.cheapshark.com/redirect?dealID=`+store.dealID} target="_blank" rel="noreferrer">
                                 <button>
                                     Check Deal
                                 </button>
@@ -121,7 +123,6 @@ export default class DashboardGame extends React.Component {
             )
         })
         // console.log(storeList)
-
 
         // let game = this.props.stateData.gameList.filter(game => parseInt(this.props.stateData.gameId) === parseInt(game.gameID))
         // let matchingGame = this.state.gameList.filter(game => parseInt(this.props.propData.match.params.gameId) === parseInt(game.gameID))

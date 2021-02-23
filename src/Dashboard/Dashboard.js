@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "./Dashboard.css"
 import Nav from '../Nav/Nav';
 import search from '../pics/magnifying-glass.webp'
@@ -16,7 +16,7 @@ export default class Dashboard extends React.Component {
            search: "",
            gameList: [],
            fetching: true,
-           gameId: this.props.match.params.gameId,
+           gameId: this.props.match.params.gameId ? this.props.match.params.gameId: null,
         }
     }
 
@@ -26,7 +26,6 @@ export default class Dashboard extends React.Component {
             `/dashboard/${this.props.match.params.user_id}/${this.state.search}`)
     }
 
-    // CALL FOR USER FOLLWED GAMES
     async componentDidMount() {
         const user = sessionStorage.user
             await fetch('http://localhost:8000/usergames', {
@@ -84,7 +83,6 @@ export default class Dashboard extends React.Component {
                         routerUrl={'/'}
                         buttonText={'Log out'}
                         click={Utils.logout}
-                        // hidden={'hide-nav'}
                     />
                     <div className="dashboard-container">
                         <form className="search-form" onSubmit={this.globalSearch}>

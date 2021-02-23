@@ -6,10 +6,8 @@ import search from '../pics/magnifying-glass.webp'
 
 export default function UserLibrary(props) {
     if(props.stateData.fetching === false) {
-        console.log(props.stateData)
 
         let gameList = props.stateData.gameList.map((game, idx) => {
-            // console.log(game[1].info)
             return (
                 <Link 
                     to={`/dashboard/game/${game[0]}`}

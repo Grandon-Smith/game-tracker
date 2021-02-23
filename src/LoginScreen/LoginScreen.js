@@ -2,7 +2,6 @@ import React from 'react';
 import './LoginScreen.css';
 import Nav from '../Nav/Nav';
 import LoginForm from '../LoginForm/LoginForm'
-// import Utils from '../utils'
 
 
 export default class LoginScreen extends React.Component {
@@ -35,7 +34,6 @@ export default class LoginScreen extends React.Component {
 
 
     render() {
-        console.log(this.props)
         return (
             <div>
                 <Nav 

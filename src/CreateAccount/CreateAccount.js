@@ -36,7 +36,6 @@ export default class CreateAccount extends React.Component {
     }
 
     render(){
-        console.log(this.state)
         return (
             <div className="login-container">
                 <Nav 
@@ -64,9 +63,7 @@ export default class CreateAccount extends React.Component {
                             required
                             onChange={e => this.setState({createPassword: e.target.value})}
                         />
-                        {/* <Link to={"/login"}> */}
-                            <button type="submit">Create Account</button>
-                        {/* </Link> */}
+                        <button type="submit">Create Account</button>
                     </fieldset>
                 </form>
             </div>
