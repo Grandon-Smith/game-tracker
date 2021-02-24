@@ -1,6 +1,8 @@
 import {Link} from 'react-router-dom';
+import STORES from './STORE'
 
 const Utils = {
+    api: {'url': 'http://localhost:8000/'},
     logout() {
         sessionStorage.removeItem('user')
     },
@@ -29,8 +31,22 @@ const Utils = {
             )
         })
         return gameSearch
+    },
+    getStoreName(storeNum) {
+        let store = STORES.filter(s => parseInt(s.storeID) === parseInt(storeNum))
+        return (
+            <h3>{store[0].storeName}</h3>
+        )
+    },
+    getStoreImg(storeNum) {
+        let store = STORES.filter(s => parseInt(s.storeID) === parseInt(storeNum))
+        return (
+                <img 
+                    src={'https://www.cheapshark.com' + store[0].images.logo}
+                    alt={store[0].storeName + `company logo`}
+                />
+        )
     }
-
 }
 
 export default Utils
