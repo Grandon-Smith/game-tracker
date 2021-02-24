@@ -25,7 +25,6 @@ export default class LoginScreen extends React.Component {
                 console.log("oh no")
                 return
             }
-            console.log("RE-DIRECTING")
             sessionStorage.setItem('user', email)
             this.props.history.push(`/dashboard/${res.user.email}`)
         })

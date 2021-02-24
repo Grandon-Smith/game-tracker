@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import STORES from './STORE'
 
 const Utils = {
-    api: {'url': 'http://localhost:8000/'},
+    api: {'url': 'http://localhost:8000'},
     logout() {
         sessionStorage.removeItem('user')
     },

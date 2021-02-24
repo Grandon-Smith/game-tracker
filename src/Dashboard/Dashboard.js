@@ -23,7 +23,7 @@ export default class Dashboard extends React.Component {
     globalSearch = (e) => {
         e.preventDefault()
         this.props.history.push(
-            `/dashboard/${this.props.match.params.user_id}/${this.state.search}`)
+            `/dashboard/${sessionStorage.user}/${this.state.search}`)
     }
 
     async componentDidMount() {

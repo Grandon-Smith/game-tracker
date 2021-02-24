@@ -38,11 +38,11 @@ export default class DashboardGame extends React.Component {
 
 
     removeGameFromUserList(gameid) {
-        let url = Utils.api.url;
+        let url = `${Utils.api.url + '/removegame'}`;
         console.log(url)
-        fetch('http://localhost:8000/removegame'
+        fetch(url
         , {
-            method: 'POST',
+            method: 'DELETE',
             headers: new Headers({
                 "Accept": "application/json",
                 'Content-Type': 'application/json'
@@ -54,7 +54,9 @@ export default class DashboardGame extends React.Component {
         })
         .then(res => {
             console.log(res)
+            this.props.propData.history.push(`/dashboard/${sessionStorage.user}`)
         })
+        .then(res => window.location.reload(false))
         .catch(err => console.log(err))
     }
 

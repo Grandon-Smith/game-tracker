@@ -14,6 +14,7 @@ export default class GlobalSearch extends React.Component {
            search: this.props.match.params.search,
            gameList: [],
            selectedGame: [],
+           usersGames: []
         }
     }
 
@@ -51,6 +52,27 @@ export default class GlobalSearch extends React.Component {
                 }
             })
             .then(this.generateSelectedGameInfo)
+            .catch(err => console.log(err))
+            
+        const user = sessionStorage.user
+        fetch('http://localhost:8000/usergames', {
+            method: 'POST',
+            headers: new Headers({
+                "Accept": "application/json",
+                'Content-Type': 'application/json',
+            }),
+            body: JSON.stringify({
+                "email": user
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            this.setState({
+                usersGames: res
+            })
+        })
+        .catch(err => console.log(err))
+            
     }
 
     generateSearchResults = () => {
@@ -100,7 +122,6 @@ export default class GlobalSearch extends React.Component {
                 "gameid": gameid,
             })
         })
-        // .then(res => res.json())
         .then(res => {
             console.log(res)
         })
@@ -126,6 +147,7 @@ export default class GlobalSearch extends React.Component {
     }
 
     render() {
+        console.log(this)
         if(!sessionStorage.getItem('user')) {
             this.props.history.push('/login')
         }
