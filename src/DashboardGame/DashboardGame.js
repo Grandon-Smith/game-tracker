@@ -1,5 +1,4 @@
 import React from 'react';
-import STORES from '../STORE';
 import Utils from '../utils'
 
 
