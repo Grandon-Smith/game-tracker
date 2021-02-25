@@ -14,7 +14,8 @@ export default class GlobalSearch extends React.Component {
            newSearch: '',
            gameList: [],
            selectedGame: [],
-           usersGames: []
+           usersGames: [],
+           following: false,
         }
     }
 
@@ -135,14 +136,6 @@ export default class GlobalSearch extends React.Component {
         return gameSearch
     }
 
-    // getSelectedGameInfo = (id) => {
-    //     const matchingGame = this.state.gameList.filter(game => id === parseInt(game.gameID))
-    //     const game = matchingGame[0]
-    //     this.setState({
-    //         selectedGame: game
-    //     })
-    // }
-
     addGameToWatchList = (gameid) => {
         fetch('http://localhost:8000/addgame'
         , {
@@ -162,6 +155,17 @@ export default class GlobalSearch extends React.Component {
         .catch(err => console.log(err))
     }
 
+    checkGameFollowStatus() {
+        if(this.state.following) {
+            return true
+        } else if(this.state.usersGames.length > 0) {
+            let match = this.state.usersGames.filter(a => a.gameid === parseInt(this.props.match.params.gameId))
+            if(match.length > 0) {
+                return true
+            } return false
+        }
+    }
+
     generateSelectedGameInfo = () => {
         if(this.state.gameList.length > 0) {
             let game = this.state.gameList.filter(a => parseInt(a.gameID) === parseInt(this.props.match.params.gameId))
@@ -177,14 +181,22 @@ export default class GlobalSearch extends React.Component {
                 
                     <a href={`https://www.cheapshark.com/redirect?dealID=${game.dealID}`} rel="noreferrer" target="_blank">Buy the Game</a>
                     <button onClick={() => this.props.history.push(`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}`)}>Go Back</button>
-                    <button onClick={() => this.addGameToWatchList(game.gameID)}>Add to Watch List</button>
+                    <button 
+                        disabled={this.checkGameFollowStatus()}
+                        onClick={ () => {
+                            this.addGameToWatchList(game.gameID);
+                            this.setState({ following: true })
+                        }}
+                    >
+                        Add to Watch List
+                    </button>
                 </div>
             )
         }
     }
 
     render() {
-        console.log(this)
+        console.log(this.state)
         if(!sessionStorage.getItem('user')) {
             this.props.history.push('/login')
         }
