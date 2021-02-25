@@ -11,14 +11,17 @@ export default class GlobalSearch extends React.Component {
         super(props)
         this.state = {
            search: this.props.match.params.search,
+           newSearch: '',
            gameList: [],
            selectedGame: [],
            usersGames: []
         }
     }
 
-     componentDidMount() {
-        const title = this.state.search
+    globalSearch(e) {
+        e.preventDefault()
+        this.props.history.push(`/dashboard/${sessionStorage.user}/${this.state.newSearch}`)
+        let title = this.state.newSearch;
         fetch(`https://www.cheapshark.com/api/1.0/deals?title=${title}`)
             .then(res => {
                 if(!res.ok)
@@ -37,24 +40,49 @@ export default class GlobalSearch extends React.Component {
                     })
                 }
             })
-            .catch(error => {
-                console.error(error)
+            .then(res => {
+                if(this.props.match.params.gameId) {
+                    const matchingGame = this.state.gameList.filter(
+                        game => parseInt(this.props.match.params.gameId) === parseInt(game.gameID) )
+                    this.setState({
+                        selectedGame: matchingGame
+                    })
+                }
+            })
+            .catch(err => console.log(err))
+
+    }
+
+     componentDidMount(e) {
+        let title = this.state.search;
+        fetch(`https://www.cheapshark.com/api/1.0/deals?title=${title}`)
+            .then(res => {
+                if(!res.ok)
+                    console.log('error fetching games')
+                return res.json()
+            })
+            .then(res => {
+                if(res.length < 1)
+                    console.log('there are no games with that title')
+                return res
+            })
+            .then(res => {
+                if(res.length > 0) {
+                    this.setState({
+                        gameList: res
+                    })
+                }
             })
             .then(res => {
                 if(this.props.match.params.gameId) {
                     const matchingGame = this.state.gameList.filter(
-                            game => parseInt(this.props.match.params.gameId) === parseInt(game.gameID) )
-                    // const game = matchingGame.filter(game => game.isOnSale === "1")
+                        game => parseInt(this.props.match.params.gameId) === parseInt(game.gameID) )
                     this.setState({
                         selectedGame: matchingGame
                     })
-                    console.log(this.state)
-
                 }
             })
-            .then(this.generateSelectedGameInfo)
             .catch(err => console.log(err))
-
         const user = sessionStorage.user
         fetch('http://localhost:8000/usergames', {
             method: 'POST',
@@ -86,7 +114,7 @@ export default class GlobalSearch extends React.Component {
         gameSearch = gameSearch.map((game, idx) => {
             return (
                 <Link 
-                    to={`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}/${this.state.gameList[idx].gameID}`}
+                    to={`/dashboard/${sessionStorage.user}/${this.props.match.params.search}/${this.state.gameList[idx].gameID}`}
                     key={idx} className="search-res"
                     id={idx}
                     // onClick={() => this.getSelectedGameInfo(parseInt(this.state.gameList[idx].gameID))}
@@ -97,7 +125,7 @@ export default class GlobalSearch extends React.Component {
                         <h4>{game.title}</h4>
                         <img
                             src={`${game.thumb}`}
-                            alt={ `game package cover art of ${game.title}` }
+                            alt={ `game package cover art of ${game.title}`}
                             className="search-res-img"
                         />
                     </div>
@@ -113,7 +141,6 @@ export default class GlobalSearch extends React.Component {
     //     this.setState({
     //         selectedGame: game
     //     })
-    //     console.log(this.state)
     // }
 
     addGameToWatchList = (gameid) => {
@@ -157,6 +184,7 @@ export default class GlobalSearch extends React.Component {
     }
 
     render() {
+        console.log(this)
         if(!sessionStorage.getItem('user')) {
             this.props.history.push('/login')
         }
@@ -169,13 +197,13 @@ export default class GlobalSearch extends React.Component {
                         buttonText={'Log out'}
                         click={Utils.logout}
                     />
-                    <form className="search-form" onSubmit={this.globalSearch}>
+                    <form className="search-form" onSubmit={e => this.globalSearch(e)}>
                         <div className="global-search-div">
                             <input
                                 id="globalSearch"
                                 type="text" 
                                 placeholder="Search game deals"
-                                onChange={e => this.setState({search: e.target.value})}
+                                onChange={e => this.setState({newSearch: e.target.value})}
                             />
                             <button type="submit">
                                 <img 
@@ -201,13 +229,13 @@ export default class GlobalSearch extends React.Component {
                         buttonText={'Log out'}
                         click={Utils.logout}
                     />
-                    <form className="search-form" onSubmit={this.globalSearch}>
+                    <form className="search-form" onSubmit={e => this.globalSearch(e)}>
                         <div className="global-search-div">
                             <input
                                 id="globalSearch"
                                 type="text" 
                                 placeholder="Search game deals"
-                                onChange={e => this.setState({search: e.target.value})}
+                                onChange={e => this.setState({newSearch: e.target.value})}
                             />
                             <button type="submit">
                                 <img 
