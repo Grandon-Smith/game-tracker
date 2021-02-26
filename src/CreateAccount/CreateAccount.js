@@ -1,7 +1,8 @@
 import React from 'react';
 import './CreateAccount.css';
 import Nav from '../Nav/Nav';
-// import { Link } from 'react-router-dom'
+import Utils from '../utils';
+// import { Link } from 'react-router-dom';
 
 export default class CreateAccount extends React.Component {
     constructor(props) {
@@ -14,7 +15,7 @@ export default class CreateAccount extends React.Component {
 
     createAcct = (e, email, pass) => {
         e.preventDefault()
-        fetch('http://localhost:8000/create-account'
+        fetch(`${Utils.api.nodeUrl}/create-account`
         , {
             method: 'POST',
             headers: new Headers({

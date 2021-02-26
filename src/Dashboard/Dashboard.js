@@ -1,11 +1,11 @@
 import React from 'react';
-// import { Link } from 'react-router-dom'
-import "./Dashboard.css"
+// import { Link } from 'react-router-dom';
+import "./Dashboard.css";
 import Nav from '../Nav/Nav';
-import search from '../pics/magnifying-glass.webp'
-import UserLibrary from '../UserLibrary/UserLibrary'
-import DashboardGame from '../DashboardGame/DashboardGame'
-import Utils from '../utils'
+import search from '../pics/magnifying-glass.webp';
+import UserLibrary from '../UserLibrary/UserLibrary';
+import DashboardGame from '../DashboardGame/DashboardGame';
+import Utils from '../utils';
 
 
 
@@ -16,19 +16,19 @@ export default class Dashboard extends React.Component {
            search: "",
            gameList: [],
            fetching: true,
-           gameId: this.props.match.params.gameId ? this.props.match.params.gameId: null,
-        }
-    }
+           gameId: this.props.match.params.gameId ? this.props.match.params.gameId : null,
+        };
+    };
 
     globalSearch = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         this.props.history.push(
-            `/dashboard/${sessionStorage.user}/${this.state.search}`)
-    }
+            `/dashboard/${sessionStorage.user}/${this.state.search}`);
+    };
 
     async componentDidMount() {
-        const user = sessionStorage.user
-            await fetch('http://localhost:8000/usergames', {
+        const user = sessionStorage.user;
+            await fetch(`${Utils.api.nodeUrl}/usergames`, {
                 method: 'POST',
                 headers: new Headers({
                     "Accept": "application/json",
@@ -48,33 +48,32 @@ export default class Dashboard extends React.Component {
                     .then(data => {
                         this.setState({
                             gameList: Object.entries(data),
-                            fetching: false
+                            fetching: false,
                         })
                     })
             })
             .catch(err => 
                 console.error(err)
-            )
-    }
+            );
+    };
 
 
 
     goBack = (e) => {
-        this.props.history.goBack()
-    }
+        this.props.history.goBack();
+    };
 
     getSelectedLibraryGameInfo = (e) => {
-        const id = parseInt(e.currentTarget.id)
+        const id = parseInt(e.currentTarget.id);
         this.setState({
             gameId: id,
-        })
-    }
+        });
+    };
 
     render() {
         if(!sessionStorage.getItem('user')) {
             this.props.history.push('/login')
         }
-
         if(this.props.match.path === "/dashboard/:user_id")
             return (
                 <div>
@@ -107,11 +106,10 @@ export default class Dashboard extends React.Component {
                             stateData={this.state}
                             data={this.props}
                             getSelectedLibraryGameInfo={this.getSelectedLibraryGameInfo}
-
                         />
                     </div>
                 </div>
-            )
+            );
         else if(this.props.match.path === "/dashboard/game/:gameId") {
             return (
             <div>
@@ -128,7 +126,7 @@ export default class Dashboard extends React.Component {
                 />
             </div>
             
-            )
-        }
-    }
-}
+            );
+        };
+    };
+};

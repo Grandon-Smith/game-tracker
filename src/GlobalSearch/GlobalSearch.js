@@ -1,9 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
-import "./GlobalSearch.css"
+import {Link} from 'react-router-dom';
+import "./GlobalSearch.css";
 import Nav from '../Nav/Nav';
-import search from '../pics/magnifying-glass.webp'
-import Utils from '../utils'
+import search from '../pics/magnifying-glass.webp';
+import Utils from '../utils';
 
 
 export default class GlobalSearch extends React.Component {
@@ -50,9 +50,8 @@ export default class GlobalSearch extends React.Component {
                     })
                 }
             })
-            .catch(err => console.log(err))
-
-    }
+            .catch(err => console.log(err));
+    };
 
      componentDidMount(e) {
         let title = this.state.search;
@@ -83,9 +82,9 @@ export default class GlobalSearch extends React.Component {
                     })
                 }
             })
-            .catch(err => console.log(err))
-        const user = sessionStorage.user
-        fetch('http://localhost:8000/usergames', {
+            .catch(err => console.log(err));
+        const user = sessionStorage.user;
+        fetch(`${Utils.api.nodeUrl}/usergames`, {
             method: 'POST',
             headers: new Headers({
                 "Accept": "application/json",
@@ -101,9 +100,8 @@ export default class GlobalSearch extends React.Component {
                     usersGames: res
                 })
             })
-            .catch(err => console.log(err))
-            
-    }
+            .catch(err => console.log(err));      
+    };
 
     generateSearchResults = () => {
         let gameSearch = this.state.gameList
@@ -111,14 +109,13 @@ export default class GlobalSearch extends React.Component {
                 index === self.findIndex((t) => (
                     t.title === thing.title
                 ))
-            )
+            );
         gameSearch = gameSearch.map((game, idx) => {
             return (
                 <Link 
                     to={`/dashboard/${sessionStorage.user}/${this.props.match.params.search}/${this.state.gameList[idx].gameID}`}
                     key={idx} className="search-res"
                     id={idx}
-                    // onClick={() => this.getSelectedGameInfo(parseInt(this.state.gameList[idx].gameID))}
                 >
 
                     <div className="global-game"
@@ -131,13 +128,13 @@ export default class GlobalSearch extends React.Component {
                         />
                     </div>
                 </Link>
-            )
-        })
-        return gameSearch
-    }
+            );
+        });
+        return gameSearch;
+    };
 
     addGameToWatchList = (gameid) => {
-        fetch('http://localhost:8000/addgame'
+        fetch(`${Utils.api.nodeUrl}/addgame`
         , {
             method: 'POST',
             headers: new Headers({
@@ -152,23 +149,25 @@ export default class GlobalSearch extends React.Component {
         .then(res => {
             console.log(res)
         })
-        .catch(err => console.log(err))
-    }
+        .catch(err => console.log(err));
+    };
 
     checkGameFollowStatus() {
         if(this.state.following) {
-            return true
+            return true;
         } else if(this.state.usersGames.length > 0) {
-            let match = this.state.usersGames.filter(a => a.gameid === parseInt(this.props.match.params.gameId))
+            let match = this.state.usersGames
+                .filter(a => a.gameid === parseInt(this.props.match.params.gameId))
             if(match.length > 0) {
-                return true
-            } return false
-        }
-    }
+                return true;
+            } return false;
+        };
+    };
 
     generateSelectedGameInfo = () => {
         if(this.state.gameList.length > 0) {
-            let game = this.state.gameList.filter(a => parseInt(a.gameID) === parseInt(this.props.match.params.gameId))
+            let game = this.state.gameList
+                .filter(a => parseInt(a.gameID) === parseInt(this.props.match.params.gameId));
             game = game[0];
             return (
                 <div className="game-info">
@@ -191,15 +190,14 @@ export default class GlobalSearch extends React.Component {
                         Add to Watch List
                     </button>
                 </div>
-            )
-        }
-    }
+            );
+        };
+    };
 
     render() {
-        console.log(this.state)
         if(!sessionStorage.getItem('user')) {
             this.props.history.push('/login')
-        }
+        };
         if(this.props.match.path ==='/dashboard/:user_id/:search'){
             return (
                 <div className="body">
@@ -230,8 +228,8 @@ export default class GlobalSearch extends React.Component {
                         { this.generateSearchResults() }
                     </div>
                 </div>
-            )
-        } 
+            );
+        }
         else if (this.props.match.path ==='/dashboard/:user_id/:search/:gameId') {
             return(
                 <div className="body">
@@ -260,8 +258,7 @@ export default class GlobalSearch extends React.Component {
                     </form>
                     {this.generateSelectedGameInfo()}
                 </div>
-            )
-        }
-        
-    }
-}
+            );
+        };
+    };
+};

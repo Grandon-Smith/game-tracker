@@ -1,8 +1,8 @@
 import {Link} from 'react-router-dom';
-import STORES from './STORE'
+import STORES from './STORE';
 
 const Utils = {
-    api: {'url': 'http://localhost:8000'},
+    api: {'nodeUrl': 'http://localhost:8000'},
     logout() {
         sessionStorage.removeItem('user')
     },
@@ -45,8 +45,8 @@ const Utils = {
                     src={'https://www.cheapshark.com' + store[0].images.logo}
                     alt={store[0].storeName + `company logo`}
                 />
-        )
-    }
-}
+        );
+    },
+};
 
 export default Utils

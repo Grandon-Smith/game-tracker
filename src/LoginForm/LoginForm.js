@@ -1,6 +1,6 @@
 import React from 'react';
 import './LoginForm.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export default class LoginForm extends React.Component {
     constructor(props) {
@@ -9,10 +9,9 @@ export default class LoginForm extends React.Component {
             loginUsername: "",
             loginPassword: "",
         }
-    }
+    };
 
     render(){
-        console.log(this.state)
         return (
             <div className="login-container">
                 <form onSubmit={e => this.props.login(e, this.state.loginUsername, this.state.loginPassword)}>
@@ -41,6 +40,6 @@ export default class LoginForm extends React.Component {
                     </fieldset>
                 </form>
             </div>
-        )
-    }
-}
+        );
+    };
+};

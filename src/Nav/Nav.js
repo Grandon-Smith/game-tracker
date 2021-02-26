@@ -1,11 +1,10 @@
 import React from 'react';
 import './nav.css'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 export default function Nav(props) {
     return (
         <header className="nav-header">
-            
             <nav>
                 <h1>
                     <a href={props.title}>Game Saver</a>
@@ -23,5 +22,5 @@ export default function Nav(props) {
                 </Link>
             </nav>
         </header>
-    )
-}
+    );
+};

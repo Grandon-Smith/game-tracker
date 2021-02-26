@@ -1,12 +1,11 @@
 import React from 'react';
 import './UserLibrary.css'
-import {Link} from 'react-router-dom'
-import search from '../pics/magnifying-glass.webp'
-
+import {Link} from 'react-router-dom';
+import search from '../pics/magnifying-glass.webp';
 
 export default function UserLibrary(props) {
-    if(props.stateData.fetching === false) {
 
+    if(props.stateData.fetching === false) {
         let gameList = props.stateData.gameList.map((game, idx) => {
             return (
                 <Link 
@@ -21,9 +20,8 @@ export default function UserLibrary(props) {
                         <h4>{game[1].info.title}</h4>
                     </div>
                 </Link>
-            )
-        })
-
+            );
+        });
         return (
             <div className="user-library-wrapper">
                 <section className="game-search">
@@ -40,14 +38,16 @@ export default function UserLibrary(props) {
                     </form>
                 </section>
                 <div className="container">
-                    {gameList}
+                    {gameList.length > 0 
+                        ? gameList 
+                        : <h3>You aren't following any games yet! Search for a game to follow.
+                             When you do, it will show up here!</h3>}
                 </div>
             </div>
-        )
+        );
     } else {
         return (
             <div></div>
-        )
-    }
-
-}
+        );
+    };
+};

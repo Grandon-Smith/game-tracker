@@ -1,13 +1,14 @@
 import React from 'react';
 import './LoginScreen.css';
 import Nav from '../Nav/Nav';
-import LoginForm from '../LoginForm/LoginForm'
+import LoginForm from '../LoginForm/LoginForm';
+import Utils from '../utils';
 
 
 export default class LoginScreen extends React.Component {
     login = (e, email, pass) => {
         e.preventDefault()
-        fetch('http://localhost:8000/login'
+        fetch(`${Utils.api.nodeUrl}/login`
         , {
             method: 'POST',
             headers: new Headers({
@@ -28,8 +29,8 @@ export default class LoginScreen extends React.Component {
             sessionStorage.setItem('user', email)
             this.props.history.push(`/dashboard/${res.user.email}`)
         })
-        .catch(err => console.log(err))
-    }
+        .catch(err => console.log(err));
+    };
 
 
     render() {
@@ -43,6 +44,6 @@ export default class LoginScreen extends React.Component {
                 />
                 <LoginForm login={this.login}/>
             </div>
-        )
-    }
-}
+        );
+    };
+};

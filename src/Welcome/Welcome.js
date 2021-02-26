@@ -1,9 +1,9 @@
 import React from 'react';
 import './Welcome.css';
 import Nav from '../Nav/Nav';
-import controller from '../pics/holding-controller.jpg'
+import controller from '../pics/holding-controller.jpg';
 import graph from '../pics/graph.jpg';
-// import Button from '../button'
+// import Button from '../button';
 
 
 
@@ -33,6 +33,5 @@ export default function Welcome(props) {
                 </section>
             </div>
         </div>
-    )
-}
-
+    );
+};

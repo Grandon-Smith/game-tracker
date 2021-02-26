@@ -1,8 +1,5 @@
 import React from 'react';
-import Utils from '../utils'
-
-
-
+import Utils from '../utils';
 
 export default class DashboardGame extends React.Component {
     constructor(props){
@@ -13,32 +10,32 @@ export default class DashboardGame extends React.Component {
             submitStatus: false,
             gameData: null
         }
-    }
+    };
 
     ToggleButton() {
         this.setState((currentState) => ({
             textDisplay: !currentState.textDisplay, 
         }));
-    }
+    };
 
     setPriceAlert = (e) => {
         e.preventDefault()
         let email = sessionStorage.user;
         let gameId = this.props.propData.match.params.gameId;
         let gamePrice = this.state.gamePrice;
-        let setUrl = `https://www.cheapshark.com/api/1.0/alerts?action=set&email=${email}&gameID=${gameId}&price=${gamePrice}`
+        let setUrl = `https://www.cheapshark.com/api/1.0/alerts?action=set&email=${email}&gameID=${gameId}&price=${gamePrice}`;
         fetch(setUrl)
-        .then( res => {
-            if(res) {
-                this.setState({textDisplay: false, submitStatus: true})
-            }
-        })
-    }
+            .then( res => {
+                if(res) {
+                    this.setState({textDisplay: false, submitStatus: true})
+                }
+            })
+            .catch(err => console.log(err));
+    };
 
 
     removeGameFromUserList(gameid) {
-        let url = `${Utils.api.url + '/removegame'}`;
-        console.log(url)
+        let url = `${Utils.api.nodeUrl + '/removegame'}`;
         fetch(url
         , {
             method: 'DELETE',
@@ -56,8 +53,8 @@ export default class DashboardGame extends React.Component {
             this.props.propData.history.push(`/dashboard/${sessionStorage.user}`)
         })
         .then(res => window.location.reload(false))
-        .catch(err => console.log(err))
-    }
+        .catch(err => console.log(err));
+    };
 
     followGameForm() {
         return(
@@ -80,11 +77,12 @@ export default class DashboardGame extends React.Component {
                     <input type="submit"/>
                 </fieldset>
             </form>
-        )
-    }
+        );
+    };
 
     generateTitleCard() {
-        let selectedGame = this.props.stateData.gameList.filter(game => game[0] === this.props.propData.match.params.gameId);
+        let selectedGame = this.props.stateData.gameList
+            .filter(game => game[0] === this.props.propData.match.params.gameId);
         return (
             <div className="title-card">
                 <h2>{selectedGame[0][1].info.title}</h2>
@@ -102,8 +100,8 @@ export default class DashboardGame extends React.Component {
                 {this.state.textDisplay && this.followGameForm()}
                 {this.state.submitStatus && "game alert set!"}
             </div>
-        )
-    }
+        );
+    };
     
     generateSelectedLibraryGameInfo() {
         let selectedGame = this.props.stateData.gameList.filter(game => game[0] === this.props.propData.match.params.gameId);
@@ -128,7 +126,6 @@ export default class DashboardGame extends React.Component {
                                 </button>
                             </a>
                         </div>
-
                     </div>
                 </div>
             );
@@ -137,7 +134,6 @@ export default class DashboardGame extends React.Component {
     }
 
     render() {      
-        console.log(this)
         if(this.props.stateData.fetching === false) {
             return (
                 <div>
