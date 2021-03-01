@@ -2,7 +2,6 @@ import React from 'react';
 import './CreateAccount.css';
 import Nav from '../Nav/Nav';
 import Utils from '../utils';
-// import { Link } from 'react-router-dom';
 
 export default class CreateAccount extends React.Component {
     constructor(props) {
@@ -28,12 +27,16 @@ export default class CreateAccount extends React.Component {
             })
         })
         .then(res => {
-            if(!res.ok) {
-                console.log("oh no")
+            if(!res.ok || res.status === 500) {
+                console.log('ERROR', res.json())
+            } else if (res.status === 201) {
+                console.log('GOOD', res.json())
+            } else if (res.status === 200) {
+                console.log('BAD', res.json())
             }
-            console.log(res)
+            // console.log(res.status)
         })
-
+        .catch()
     }
 
     render(){
