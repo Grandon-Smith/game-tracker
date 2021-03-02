@@ -36,6 +36,9 @@ export default class LoginScreen extends React.Component {
 
 
     render() {
+        if(sessionStorage.getItem('user')) {
+            this.props.history.push(`/dashboard/${sessionStorage.name}`)
+        }
         return (
             <div>
                 <Nav 

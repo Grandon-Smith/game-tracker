@@ -1,26 +1,20 @@
 import React from 'react';
 import './nav.css'
 import {Link} from 'react-router-dom';
+import Utils from '../utils';
+
 
 export default function Nav(props) {
     return (
-        <header className="nav-header">
+        <header className="header">
             <nav>
-                <h1>
-                    <a href={props.title}>Game Saver</a>
-                </h1>
-                <Link to={props.routerUrl} className={props.hidden}>
-                    <input 
-                        type="button" 
-                        value={props.buttonText} 
-                        onClick={ 
-                            props.click 
-                            ? e => props.click(e) 
-                            : null
-                        }
-                    />
-                </Link>
+                { props.register ? Utils.navBtns.registerBtn() : null }
+                { props.login ? Utils.navBtns.loginBtn() : null }
+                { props.logout ? Utils.navBtns.logoutBtn() : null }
             </nav>
+            <h1>
+                <a href={props.title}>Game Saver</a>
+            </h1>
         </header>
     );
 };

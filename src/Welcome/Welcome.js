@@ -12,8 +12,8 @@ export default function Welcome(props) {
         <div>
             <Nav 
                 title={'/'}
-                buttonText={'Log In'}
-                routerUrl={'/login'}
+                login={true}
+                register={true}
             />
             <div className="welcome-container">
                 <section className="sec-1">

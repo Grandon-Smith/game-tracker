@@ -5,6 +5,7 @@ const Utils = {
     api: {'nodeUrl': 'http://localhost:8000'},
     logout() {
         sessionStorage.removeItem('user')
+        sessionStorage.removeItem('name')
     },
     generateSearchResults(gameList, propdata) {
         console.log(propdata)
@@ -47,6 +48,58 @@ const Utils = {
                 />
         );
     },
+    navBtns: {
+        registerBtn() {
+            return (
+                // <div>
+                    <Link 
+                        to="/create-account" 
+                        className="nav-btn"
+                    >
+                        {/* <input 
+                            type="button" 
+                            value="Log In" 
+                        /> */}
+                        Register
+                    </Link>
+                // </div>
+            )
+        },
+        loginBtn() {
+            return (
+                // <div>
+                    <Link 
+                        to="/login" 
+                        className="nav-btn"
+                    >
+                        {/* <input 
+                            type="button" 
+                            value="Log In" 
+                        /> */}
+                        Log In
+                    </Link>
+                // </div>
+            )
+        },
+        logoutBtn() {
+            return (
+                // <div>
+                    <Link 
+                        to="/login" 
+                        className="nav-btn"
+                        onClick={e => this.logout()}
+                    >
+                        {/* <input 
+                            type="button" 
+                            value="Log Out"
+                            onClick={e => this.logout()}
+                        /> */}
+                        Log Out
+                    </Link>
+                // </div>
+            )
+        },
+    }
 };
 
 export default Utils;
