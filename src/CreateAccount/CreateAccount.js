@@ -7,12 +7,13 @@ export default class CreateAccount extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            createUsername: "",
             createEmail: "",
             createPassword: "",
         }
     }
 
-    createAcct = (e, email, pass) => {
+    createAcct = (e, username, email, pass) => {
         e.preventDefault()
         fetch(`${Utils.api.nodeUrl}/create-account`
         , {
@@ -22,6 +23,7 @@ export default class CreateAccount extends React.Component {
                 'Content-Type': 'application/json'
             }),
             body: JSON.stringify({
+                'username': username,
                 "email": email,
                 "password": pass,
             })
@@ -48,12 +50,18 @@ export default class CreateAccount extends React.Component {
                     click={''}
                     hidden={'hide-nav'}
                 />
-                <form onSubmit={e => this.createAcct(e, this.state.createEmail, this.state.createPassword)}>
+                <form onSubmit={e => this.createAcct(e, this.state.createUsername, this.state.createEmail, this.state.createPassword)}>
                     <fieldset className="login-form">
                         <legend>Create Account:</legend>
-                        <label htmlFor="username" name="username">Email: </label>
+                        <label htmlFor="username" name="username">Username: </label>
                         <input
                             id="username" 
+                            type="text"
+                            onChange={e => this.setState({createUsername: e.target.value})}
+                        />
+                        <label htmlFor="email" name="email">Email: </label>
+                        <input
+                            id="email" 
                             type="text"
                             onChange={e => this.setState({createEmail: e.target.value})}
                         />
@@ -62,7 +70,7 @@ export default class CreateAccount extends React.Component {
                             id="password" 
                             type="password" 
                             name="password" 
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                            // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                             title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
                             required
                             onChange={e => this.setState({createPassword: e.target.value})}

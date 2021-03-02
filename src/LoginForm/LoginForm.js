@@ -17,7 +17,7 @@ export default class LoginForm extends React.Component {
                 <form onSubmit={e => this.props.login(e, this.state.loginUsername, this.state.loginPassword)}>
                     <fieldset className="login-form">
                         <legend>Login:</legend>
-                        <label htmlFor="username">Username: </label>
+                        <label htmlFor="username">Email: </label>
                         <input 
                             id="username" 
                             type="text"
@@ -36,7 +36,7 @@ export default class LoginForm extends React.Component {
                         <Link to={"/create-account"}>
                             <button type="button">Create Account</button>
                         </Link>
-                        <button type="submit">Log in</button>
+                        <button type="submit">Log In</button>
                     </fieldset>
                 </form>
             </div>

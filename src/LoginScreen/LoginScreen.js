@@ -26,8 +26,10 @@ export default class LoginScreen extends React.Component {
                 console.log("oh no")
                 return
             }
+            const { username, email } = res.user
             sessionStorage.setItem('user', email)
-            this.props.history.push(`/dashboard/${res.user.email}`)
+            sessionStorage.setItem('name', username)
+            this.props.history.push(`/dashboard/${res.user.username}`)
         })
         .catch(err => console.log(err));
     };
