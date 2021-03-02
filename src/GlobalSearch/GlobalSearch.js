@@ -21,7 +21,7 @@ export default class GlobalSearch extends React.Component {
 
     globalSearch(e) {
         e.preventDefault()
-        this.props.history.push(`/dashboard/${sessionStorage.user}/${this.state.newSearch}`)
+        this.props.history.push(`/dashboard/${sessionStorage.name}/${this.state.newSearch}`)
         let title = this.state.newSearch;
         fetch(`https://www.cheapshark.com/api/1.0/deals?title=${title}`)
             .then(res => {
@@ -113,7 +113,7 @@ export default class GlobalSearch extends React.Component {
         gameSearch = gameSearch.map((game, idx) => {
             return (
                 <Link 
-                    to={`/dashboard/${sessionStorage.user}/${this.props.match.params.search}/${this.state.gameList[idx].gameID}`}
+                    to={`/dashboard/${sessionStorage.name}/${this.props.match.params.search}/${this.state.gameList[idx].gameID}`}
                     key={idx} className="search-res"
                     id={idx}
                 >
@@ -234,7 +234,7 @@ export default class GlobalSearch extends React.Component {
             return(
                 <div className="body">
                     <Nav 
-                        title={`/dashboard/${sessionStorage.user}`}
+                        title={`/dashboard/${sessionStorage.name}`}
                         routerUrl={'/'}
                         buttonText={'Log out'}
                         click={Utils.logout}

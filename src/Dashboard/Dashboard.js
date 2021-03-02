@@ -23,7 +23,7 @@ export default class Dashboard extends React.Component {
     globalSearch = (e) => {
         e.preventDefault();
         this.props.history.push(
-            `/dashboard/${sessionStorage.user}/${this.state.search}`);
+            `/dashboard/${sessionStorage.name}/${this.state.search}`);
     };
 
     async componentDidMount() {
@@ -78,7 +78,7 @@ export default class Dashboard extends React.Component {
             return (
                 <div>
                     <Nav 
-                        title={`/dashboard/${sessionStorage.user}`}
+                        title={`/dashboard/${sessionStorage.name}`}
                         routerUrl={'/'}
                         buttonText={'Log out'}
                         click={Utils.logout}
@@ -114,7 +114,7 @@ export default class Dashboard extends React.Component {
             return (
             <div>
                 <Nav 
-                    title={`/dashboard/${sessionStorage.user}`}
+                    title={`/dashboard/${sessionStorage.name}`}
                     routerUrl={'/'}
                     buttonText={'Log out'}
                     click={Utils.logout}
