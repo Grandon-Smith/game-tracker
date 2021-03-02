@@ -31,10 +31,10 @@ export default class CreateAccount extends React.Component {
                 console.log('ERROR', res.json())
             } else if (res.status === 201) {
                 console.log('GOOD', res.json())
+                this.props.history.push('/login')
             } else if (res.status === 200) {
                 console.log('BAD', res.json())
             }
-            // console.log(res.status)
         })
         .catch()
     }
