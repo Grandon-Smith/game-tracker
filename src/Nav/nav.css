@@ -1,10 +1,12 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); */
+
 .header {
     position: relative;
     border-bottom: 1px black solid;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 1rem;
+    padding: .5rem;
     width: 100%;
 }
 
@@ -22,27 +24,49 @@
 }
 
 .header > nav {
+    /* border: black 1px solid; */
     margin: 0;
     padding: 0;
-    border: black 2px solid;
     display: flex;
     justify-content: flex-end;
 }
 
-.nav-btn {
-    padding: 5px 10px;
-    margin-left: .5rem;
+.header > h1 {
+    /* border: 1px solid black; */
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    font-family: var(--title-font);
+    line-height: 1.5em;
 }
 
-.header > h1, a {
+.header a {
     color: black;
     position: relative;
     text-decoration: none;
     cursor: pointer;
 }
 
-.header > h1, a:hover {
+.header a:hover {
     color: blue;
+}
+
+.nav-btn {
+    background-color: rgb(202, 163, 163);
+    border: 1px solid black;
+    padding: .2em .8em;
+    margin-left: 1.5rem;
+    border-radius: 15px;
+    line-height: 1.3em;
+    transition: all .25s;
+}
+
+.nav-btn:hover {
+    background-color: rgb(190, 134, 134);
+    border: 2px solid black;
+    padding: .4em 1.1em;
+    margin-left: 1.5rem;
+    border-radius: 18px;
+    line-height: 1.3em;
 }
 
 .hide-nav {
