@@ -1,23 +1,44 @@
+.welc-img {
+    text-decoration: none;
+}
+
 .welcome-container {
     padding: 2em 5%;
     width: 100%;
     background-color: rgb(206, 206, 206);
-    
 }
 
-section img {
-    width: 100%;
-    /* border: 1px solid black */
-}
-
-.welcome-sec {
+[class^="welcome-sec"] {
     border: 1px black solid;
     background-color: white;
     margin-bottom: 2rem;
 }
 
-.welcome-sec > div {
-    width: 85%;
-    margin: auto auto;
-    padding: .5em 0;
+[class^="welcome-sec"] * {
+    border: 1px solid black;
+}
+
+.welc-sec-1-text {
+    margin: 1rem 0;
+}
+.welc-sec-1-text > h3 {
+    margin: 1rem 0;
+}
+
+.welcome-sec-2 {
+    padding: 5%;
+}
+
+.welc-sec-info-2 {
+    margin-top: 2rem;
+    display: flex;
+}
+
+.welc-sec-info-2 > * {
+    width: 50%;
+    text-align: left;
+    margin: .5rem;
+    display: flex;
+    align-items: center;
+    line-height: 1.5em;
 }

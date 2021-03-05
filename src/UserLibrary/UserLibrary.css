@@ -33,7 +33,8 @@ img {
     border: 2px black solid;
 }
 
-.game > h4, p {
+.game > h4,
+.game > p {
     word-wrap: wrap;
     max-width: 10rem;
 }

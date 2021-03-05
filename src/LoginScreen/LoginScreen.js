@@ -43,9 +43,6 @@ export default class LoginScreen extends React.Component {
             <div>
                 <Nav 
                     title={'/'}
-                    routerUrl={'/'}
-                    click={''}
-                    hidden={'hide-nav'}
                 />
                 <LoginForm login={this.login}/>
             </div>
