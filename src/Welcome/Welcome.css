@@ -1,32 +1,22 @@
 .welcome-container {
+    padding: 2em 5%;
     width: 100%;
     background-color: rgb(206, 206, 206);
-    padding: 2em 5%;
+    
 }
 
-section > img {
+section img {
     width: 100%;
+    /* border: 1px solid black */
 }
 
-.sec-1 {
+.welcome-sec {
     border: 1px black solid;
     background-color: white;
     margin-bottom: 2rem;
 }
 
-.sec-1 > div {
-    width: 85%;
-    margin: auto auto;
-    padding: .5em 0;
-}
-
-.sec-2 {
-    border: 1px black solid;
-    background-color: white;
-    margin-bottom: 2rem;
-}
-
-.sec-2 > div {
+.welcome-sec > div {
     width: 85%;
     margin: auto auto;
     padding: .5em 0;

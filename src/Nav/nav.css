@@ -46,12 +46,8 @@
     cursor: pointer;
 }
 
-.header a:hover {
-    color: blue;
-}
-
 .nav-btn {
-    background-color: rgb(202, 163, 163);
+    background-color: rgb(53, 156, 253);
     border: 1px solid black;
     padding: .2em .8em;
     margin-left: 1.5rem;
@@ -61,12 +57,9 @@
 }
 
 .nav-btn:hover {
-    background-color: rgb(190, 134, 134);
-    border: 2px solid black;
-    padding: .4em 1.1em;
-    margin-left: 1.5rem;
-    border-radius: 18px;
-    line-height: 1.3em;
+    background-color: rgb(29, 146, 255);
+    color: white;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .hide-nav {
