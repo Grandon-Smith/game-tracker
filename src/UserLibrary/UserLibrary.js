@@ -11,19 +11,22 @@ export default function UserLibrary(props) {
                 <Link 
                     to={`/dashboard/game/${game[0]}`}
                     key={idx} 
-                    className="game"
+                    className="user-game"
                     id={game[0]}
-                    onClick={ props.getSelectedLibraryGameInfo }
+                    onClick={ e => props.getSelectedLibraryGameInfo(e) }
                 >
-                    <div>
-                        <img src={`${game[1].info.thumb}`} alt={ `game package cover art of ${game[1].info.title}` }/>
-                        <h4>{game[1].info.title}</h4>
+                    <div className="user-library-img-wrapper">
+                        <img 
+                            src={`${game[1].info.thumb}`} 
+                            alt={ `game package cover art of ${game[1].info.title}` }
+                        />
                     </div>
+                    <h4>{game[1].info.title}</h4>
                 </Link>
             );
         });
         return (
-            <div className="user-library-wrapper">
+            <div className="user-library-container">
                 <section className="game-search">
                     <h3>Games you follow: </h3>
                     <form>
@@ -37,7 +40,7 @@ export default function UserLibrary(props) {
                         </button>
                     </form>
                 </section>
-                <div className="container">
+                <div className="user-library-game-list">
                     {gameList.length > 0 
                         ? gameList 
                         : <h3>You aren't following any games yet! Search for a game to follow.

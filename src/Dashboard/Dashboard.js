@@ -113,9 +113,7 @@ export default class Dashboard extends React.Component {
             <div>
                 <Nav 
                     title={`/dashboard/${sessionStorage.name}`}
-                    routerUrl={'/'}
-                    buttonText={'Log out'}
-                    click={Utils.logout}
+                    logout={true}
                 />
                 <DashboardGame 
                     stateData={ this.state }
