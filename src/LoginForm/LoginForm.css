@@ -16,10 +16,6 @@
     padding: 5px;
 } */
 
-/* .form-section {
-    margin-top: 1.5em;
-} */
-
 .form-section > input {
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.377);
@@ -37,9 +33,14 @@
     flex-direction: column;
 }
 
-.login-form-buttons > button{
-    max-width: 5rem;
-    margin: auto auto;
+.login-form-buttons > button {
+    /* border: 1px solid black; */
+    border: 0;
+    max-width: 8rem;
+    padding: .3em 2em;
+    margin: 1rem auto;
+    border-radius: 20px;
+    box-shadow:0 0 5px rgba(0, 0, 0, 0.719)
 }
 
 .visually-hidden {

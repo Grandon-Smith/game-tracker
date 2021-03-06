@@ -79,20 +79,18 @@ export default class Dashboard extends React.Component {
                 <div>
                     <Nav 
                         title={`/dashboard/${sessionStorage.name}`}
-                        routerUrl={'/'}
-                        buttonText={'Log out'}
-                        click={Utils.logout}
+                        logout={true}
                     />
                     <div className="dashboard-container">
                         <form className="search-form" onSubmit={this.globalSearch}>
-                            <div className="global-search-div">
+                            <div className="search-wrapper">
                                 <input
                                     id="globalSearch"
                                     type="text" 
                                     placeholder="Search game deals"
                                     onChange={e => this.setState({search: e.target.value})}
                                 />
-                                <button type="submit">
+                                <button type="submit" className="search-icon-wrapper">
                                     <img 
                                         src={search} 
                                         className="search-icon"

@@ -51,52 +51,33 @@ const Utils = {
     navBtns: {
         registerBtn() {
             return (
-                // <div>
-                    <Link 
-                        to="/create-account" 
-                        className="nav-btn"
-                    >
-                        {/* <input 
-                            type="button" 
-                            value="Log In" 
-                        /> */}
-                        Register
-                    </Link>
-                // </div>
+                <Link 
+                    to="/create-account" 
+                    className="nav-btn"
+                >
+                    Register
+                </Link>
             )
         },
         loginBtn() {
             return (
-                // <div>
-                    <Link 
-                        to="/login" 
-                        className="nav-btn"
-                    >
-                        {/* <input 
-                            type="button" 
-                            value="Log In" 
-                        /> */}
-                        Log In
-                    </Link>
-                // </div>
+                <Link 
+                    to="/login" 
+                    className="nav-btn"
+                >
+                    Log In
+                </Link>
             )
         },
         logoutBtn() {
             return (
-                // <div>
-                    <Link 
-                        to="/login" 
-                        className="nav-btn"
-                        onClick={e => this.logout()}
-                    >
-                        {/* <input 
-                            type="button" 
-                            value="Log Out"
-                            onClick={e => this.logout()}
-                        /> */}
-                        Log Out
-                    </Link>
-                // </div>
+                <Link 
+                    to="/login" 
+                    className="nav-btn"
+                    onClick={e => Utils.logout()}
+                >
+                    Log Out
+                </Link>
             )
         },
     }
