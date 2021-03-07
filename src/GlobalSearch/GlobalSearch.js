@@ -102,6 +102,37 @@ export default class GlobalSearch extends React.Component {
             })
             .catch(err => console.log(err));      
     };
+    
+    addGameToWatchList = (gameid) => {
+        fetch(`${Utils.api.nodeUrl}/addgame`
+        , {
+            method: 'POST',
+            headers: new Headers({
+                "Accept": "application/json",
+                'Content-Type': 'application/json'
+            }),
+            body: JSON.stringify({
+                "email": sessionStorage.user,
+                "gameid": gameid,
+            })
+        })
+        .then(res => {
+            console.log(res.json())
+        })
+        .catch(err => console.log(err));
+    };
+
+    checkGameFollowStatus() {
+        if(this.state.following) {
+            return true;
+        } else if(this.state.usersGames.length > 0) {
+            let match = this.state.usersGames
+                .filter(a => a.gameid === parseInt(this.props.match.params.gameId))
+            if(match.length > 0) {
+                return true;
+            } return false;
+        };
+    };
 
     generateSearchResults = () => {
         let gameSearch = this.state.gameList
@@ -117,50 +148,17 @@ export default class GlobalSearch extends React.Component {
                     key={idx} className="search-res"
                     id={idx}
                 >
-                    <div className="global-game"
->
-                        <h4>{game.title}</h4>
+                    <h4>{game.title}</h4>
+                    <div className="user-library-img-wrapper">
                         <img
                             src={`${game.thumb}`}
                             alt={ `game package cover art of ${game.title}`}
-                            className="search-res-img"
                         />
                     </div>
                 </Link>
             );
         });
         return gameSearch;
-    };
-
-    addGameToWatchList = (gameid) => {
-        fetch(`${Utils.api.nodeUrl}/addgame`
-        , {
-            method: 'POST',
-            headers: new Headers({
-                "Accept": "application/json",
-                'Content-Type': 'application/json'
-            }),
-            body: JSON.stringify({
-                "email": sessionStorage.user,
-                "gameid": gameid,
-            })
-        })
-        .then(res => {
-            console.log(res)
-        })
-        .catch(err => console.log(err));
-    };
-
-    checkGameFollowStatus() {
-        if(this.state.following) {
-            return true;
-        } else if(this.state.usersGames.length > 0) {
-            let match = this.state.usersGames
-                .filter(a => a.gameid === parseInt(this.props.match.params.gameId))
-            if(match.length > 0) {
-                return true;
-            } return false;
-        };
     };
 
     generateSelectedGameInfo = () => {
@@ -178,7 +176,11 @@ export default class GlobalSearch extends React.Component {
                     <h5>Sale Price: ${game.salePrice}</h5>
                 
                     <a href={`https://www.cheapshark.com/redirect?dealID=${game.dealID}`} rel="noreferrer" target="_blank">Buy the Game</a>
-                    <button onClick={() => this.props.history.push(`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}`)}>Go Back</button>
+                    <button 
+                        onClick={() => {
+                            this.props.history.push(`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}`);
+                            this.setState({ following: false })
+                        }}>Go Back</button>
                     <button 
                         disabled={this.checkGameFollowStatus()}
                         onClick={ () => {
