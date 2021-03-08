@@ -7,7 +7,7 @@
 .search-form {
    /* border: 2px solid black; */
    width: 100%;
-   padding: 1rem 0;
+   padding: 1rem 5%;
 }
 /* .search-form * {
    border: 1px solid black;
@@ -48,6 +48,11 @@
    transform: scale(1.1);
    background-color: transparent;
    display: block;
+}
+
+.search-icon-2 {
+   display: block;
+   width: 1rem;
 }
 
 .global-search-div > input:hover {

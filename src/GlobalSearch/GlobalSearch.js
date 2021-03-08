@@ -116,9 +116,8 @@ export default class GlobalSearch extends React.Component {
                 "gameid": gameid,
             })
         })
-        .then(res => {
-            console.log(res.json())
-        })
+        .then(res => res.json())
+        .then(res => console.log(res))
         .catch(err => console.log(err));
     };
 
@@ -145,11 +144,12 @@ export default class GlobalSearch extends React.Component {
             return (
                 <Link 
                     to={`/dashboard/${sessionStorage.name}/${this.props.match.params.search}/${this.state.gameList[idx].gameID}`}
-                    key={idx} className="search-res"
+                    key={idx}
+                    className="search-res"
                     id={idx}
                 >
                     <h4>{game.title}</h4>
-                    <div className="user-library-img-wrapper">
+                    <div className="global-search-img-wrapper">
                         <img
                             src={`${game.thumb}`}
                             alt={ `game package cover art of ${game.title}`}
@@ -168,6 +168,13 @@ export default class GlobalSearch extends React.Component {
             game = game[0];
             return (
                 <div className="game-info">
+                    <button 
+                        onClick={() => {
+                            this.props.history.push(`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}`);
+                            this.setState({ following: false })
+                        }}>
+                            X
+                    </button>
                     <h3>{game.title}</h3>
                     <img src={game.thumb} alt={`game cover of ${game.title}`}/>
                     <h5>Metacritic Score: {game.metacriticScore === 0 ? "--": game.metacriticScore}</h5>
@@ -176,11 +183,7 @@ export default class GlobalSearch extends React.Component {
                     <h5>Sale Price: ${game.salePrice}</h5>
                 
                     <a href={`https://www.cheapshark.com/redirect?dealID=${game.dealID}`} rel="noreferrer" target="_blank">Buy the Game</a>
-                    <button 
-                        onClick={() => {
-                            this.props.history.push(`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}`);
-                            this.setState({ following: false })
-                        }}>Go Back</button>
+                    
                     <button 
                         disabled={this.checkGameFollowStatus()}
                         onClick={ () => {
@@ -226,6 +229,7 @@ export default class GlobalSearch extends React.Component {
                         </div>
                     </form>
                     <div className="global-search-container">
+                        <h2>Search Results</h2>
                         { this.generateSearchResults() }
                     </div>
                 </div>
