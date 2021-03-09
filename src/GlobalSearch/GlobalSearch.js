@@ -168,13 +168,15 @@ export default class GlobalSearch extends React.Component {
             game = game[0];
             return (
                 <div className="game-info">
-                    <button 
-                        onClick={() => {
-                            this.props.history.push(`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}`);
-                            this.setState({ following: false })
-                        }}>
-                            X
-                    </button>
+                    <div className="close-window-btn-div">
+                        <button 
+                            onClick={() => {
+                                this.props.history.push(`/dashboard/${this.props.match.params.user_id}/${this.props.match.params.search}`);
+                                this.setState({ following: false })
+                            }}>
+                                X
+                        </button>
+                    </div>
                     <h3>{game.title}</h3>
                     <img src={game.thumb} alt={`game cover of ${game.title}`}/>
                     <h5>Metacritic Score: {game.metacriticScore === 0 ? "--": game.metacriticScore}</h5>

@@ -71,6 +71,12 @@
     max-width: 45rem;
 }
 
+.close-window-btn-div {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
 .game-info > img {
     max-width: 50%;
     margin: 1rem auto;
