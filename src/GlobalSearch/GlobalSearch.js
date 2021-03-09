@@ -19,8 +19,9 @@ export default class GlobalSearch extends React.Component {
         }
     }
 
-    globalSearch(e) {
+    globalSearch(e, propData) {
         e.preventDefault()
+        console.log(propData)
         this.props.history.push(`/dashboard/${sessionStorage.name}/${this.state.newSearch}`)
         let title = this.state.newSearch;
         fetch(`https://www.cheapshark.com/api/1.0/deals?title=${title}`)
@@ -83,6 +84,7 @@ export default class GlobalSearch extends React.Component {
                 }
             })
             .catch(err => console.log(err));
+
         const user = sessionStorage.user;
         fetch(`${Utils.api.nodeUrl}/usergames`, {
             method: 'POST',
@@ -140,10 +142,11 @@ export default class GlobalSearch extends React.Component {
                     t.title === thing.title
                 ))
             );
+
         gameSearch = gameSearch.map((game, idx) => {
             return (
                 <Link 
-                    to={`/dashboard/${sessionStorage.name}/${this.props.match.params.search}/${this.state.gameList[idx].gameID}`}
+                    to={`/dashboard/${sessionStorage.name}/${this.props.match.params.search}/${gameSearch[idx].gameID}`}
                     key={idx}
                     className="search-res"
                     id={idx}
@@ -167,7 +170,7 @@ export default class GlobalSearch extends React.Component {
                 .filter(a => parseInt(a.gameID) === parseInt(this.props.match.params.gameId));
             game = game[0];
             return (
-                <div className="game-info">
+                <div className="global-game-wrapper">
                     <div className="close-window-btn-div">
                         <button 
                             onClick={() => {
@@ -177,30 +180,42 @@ export default class GlobalSearch extends React.Component {
                                 X
                         </button>
                     </div>
-                    <h3>{game.title}</h3>
-                    <img src={game.thumb} alt={`game cover of ${game.title}`}/>
-                    <h5>Metacritic Score: {game.metacriticScore === 0 ? "--": game.metacriticScore}</h5>
-                    <h5>Steam Rating: {game.steamRatingPercent === 0 ? "--": `${game.steamRatingPercent} % -- ${game.steamRatingText}`}</h5>
-                    <h5>Normal Price: ${game.normalPrice}</h5>
-                    <h5>Sale Price: ${game.salePrice}</h5>
-                
-                    <a href={`https://www.cheapshark.com/redirect?dealID=${game.dealID}`} rel="noreferrer" target="_blank">Buy the Game</a>
-                    
-                    <button 
-                        disabled={this.checkGameFollowStatus()}
-                        onClick={ () => {
-                            this.addGameToWatchList(game.gameID);
-                            this.setState({ following: true })
-                        }}
-                    >
-                        Add to Watch List
-                    </button>
+
+                    <h2>{game.title}</h2>
+                    <div className="global-game-img-wrapper">
+                        <img src={game.thumb} alt={`game cover of ${game.title}`}/>
+                    </div>
+                    <div className="global-game-stats">
+                        <h5>Metacritic Score: {game.metacriticScore === 0 ? "--": game.metacriticScore}</h5>
+                        <h5>Steam Rating: {game.steamRatingPercent === 0 ? "--": `${game.steamRatingPercent}%`}</h5>
+                        <h5>Normal Price: ${game.normalPrice}</h5>
+                        <h5>Sale Price: ${game.salePrice}</h5>
+                    </div>
+                    <div className="global-game-user-btns">
+                        <button>
+                            <a href={`https://www.cheapshark.com/redirect?dealID=${game.dealID}`}
+                                rel="noreferrer"
+                                target="_blank">
+                                    Buy Game
+                            </a>
+                        </button>
+                        
+                        <button 
+                            disabled={this.checkGameFollowStatus()}
+                            onClick={ () => {
+                                this.addGameToWatchList(game.gameID);
+                                this.setState({ following: true })
+                            }}>
+                                Add to Watch List
+                        </button>
+                    </div>
                 </div>
             );
         };
     };
 
     render() {
+        console.log(this.state)
         if(!sessionStorage.getItem('user')) {
             this.props.history.push('/login')
         };
@@ -209,17 +224,15 @@ export default class GlobalSearch extends React.Component {
                 <div className="body">
                     <Nav 
                         title={`/dashboard/${this.props.match.params.user_id}`}
-                        routerUrl={'/'}
-                        buttonText={'Log out'}
-                        click={Utils.logout}
+                        logout={true}
                     />
-                    <form className="search-form" onSubmit={this.globalSearch}>
+                    <form className="search-form" onSubmit={e => this.globalSearch(e, this.props)}>
                         <div className="search-wrapper">
                             <input
                                 id="globalSearch"
                                 type="text" 
                                 placeholder="Search game deals"
-                                onChange={e => this.setState({search: e.target.value})}
+                                onChange={e => this.setState({newSearch: e.target.value})}
                             />
                             <button type="submit" className="search-icon-wrapper">
                                 <img 
@@ -242,17 +255,16 @@ export default class GlobalSearch extends React.Component {
                 <div className="body">
                     <Nav 
                         title={`/dashboard/${sessionStorage.name}`}
-                        routerUrl={'/'}
-                        buttonText={'Log out'}
-                        click={Utils.logout}
+                        logout={true}
+
                     />
-                    <form className="search-form" onSubmit={this.globalSearch}>
+                    <form className="search-form" onSubmit={e => this.globalSearch(e, this.props)}>
                         <div className="search-wrapper">
                             <input
                                 id="globalSearch"
                                 type="text" 
                                 placeholder="Search game deals"
-                                onChange={e => this.setState({search: e.target.value})}
+                                onChange={e => this.setState({newSearch: e.target.value})}
                             />
                             <button type="submit" className="search-icon-wrapper">
                                 <img 
