@@ -86,17 +86,19 @@ export default class DashboardGame extends React.Component {
         return (
             <div className="title-card">
                 <h2>{selectedGame[0][1].info.title}</h2>
-                <div>
+                <div className="title-card-img-wrapper">
                     <img src={selectedGame[0][1].info.thumb}
                     alt={ `game package cover art of ${selectedGame[0][1].info.title}`}
-                />
+                    />
                 </div>
-                <button onClick={() => this.removeGameFromUserList(parseInt(selectedGame[0][0]))}>
-                    Remove From Watchlist
-                </button>
-                <button onClick={() => this.ToggleButton()}>
-                    Set Price Alert
-                </button>
+                <div className="title-card-btns">
+                    <button onClick={() => this.removeGameFromUserList(parseInt(selectedGame[0][0]))}>
+                        Stop Following
+                    </button>
+                    <button onClick={() => this.ToggleButton()}>
+                        Set Price Alert
+                    </button>
+                </div>
                 {this.state.textDisplay && this.followGameForm()}
                 {this.state.submitStatus && "game alert set!"}
             </div>

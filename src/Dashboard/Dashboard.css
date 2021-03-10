@@ -63,6 +63,26 @@
    outline: none
 }
 
+/* --------------DASHBOARD GAME CSS----------------- */
+
+.title-card {
+   margin: .5rem;
+}
+
+.title-card > h2 {
+   margin: .5em;
+}
+
+.title-card-btns {
+   display: flex;
+   justify-content: space-evenly;
+}
+
+.title-card-btns {
+   padding: .5em 1em;
+}
+
+
 .store-wrapper {
    border: 2px solid black;
    margin: 15px 0;

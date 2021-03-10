@@ -27,9 +27,9 @@ export default function UserLibrary(props) {
         });
         return (
             <div className="user-library-container">
-                <section className="game-search">
-                    <h3>Games you follow: </h3>
-                    <form>
+                <section className="user-library-game-search">
+                    <h2>Games you follow</h2>
+                    {/* <form>
                         <input type="text"/>
                         <button type="submit">
                                 <img 
@@ -38,7 +38,7 @@ export default function UserLibrary(props) {
                                     className="search-icon-2"
                                 />
                         </button>
-                    </form>
+                    </form> */}
                 </section>
                 <div className="user-library-game-list">
                     {gameList.length > 0 
