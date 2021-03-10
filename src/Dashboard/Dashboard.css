@@ -78,8 +78,20 @@
    justify-content: space-evenly;
 }
 
-.title-card-btns {
+.title-card-btns > *,
+.store-sale-data-wrapper > button {
    padding: .5em 1em;
+   border-radius: 15px;
+   border: 1px solid black;
+   max-width: 8rem;
+   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.685);
+   margin: auto auto;
+}
+
+.title-card-img-wrapper {
+   max-width: 15rem;
+   max-height: 20rem;
+   margin: 1rem auto;
 }
 
 
@@ -125,3 +137,7 @@
    text-align: left;
 }
 
+.store-sale-data-wrapper a {
+   text-decoration: none;
+   color: black;
+}
