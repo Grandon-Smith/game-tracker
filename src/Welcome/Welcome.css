@@ -1,9 +1,6 @@
-.welc-img {
-    display: block;
-}
 
 .welcome-container {
-    padding: 2em 5%;
+    padding: 2rem 5%;
     width: 100%;
     background-color: rgb(206, 206, 206);
 }
@@ -14,8 +11,18 @@
     margin-bottom: 2rem;
 }
 
-[class^="welcome-sec"] * {
+/* [class^="welcome-sec"] * {
     border: 1px solid black;
+} */
+
+[class^="welc-img-wrapper"] {
+    max-width: 100%;
+    /* padding: 3px; */
+}
+
+[class^="welc-img"] {
+    display: block;
+    width: 100%;
 }
 
 .welc-sec-1-text {

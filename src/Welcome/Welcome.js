@@ -10,7 +10,7 @@ export default function Welcome() {
     const secData = data.map((d, idx) => {
         return (
             <div className="welc-sec-info-2" key={idx}>
-                <div className="welc-img-wrapper">
+                <div className="welc-img-wrapper-2">
                     <img
                         src={d.imgSrc} 
                         alt={d.imgAlt}
@@ -32,10 +32,11 @@ export default function Welcome() {
             <div className="welcome-container">
 
                 <section className="welcome-sec-1">
-                    <div className="welc-img-wrapper">
+                    <div className="welc-img-wrapper-1">
                         <img
                             src={graph} 
                             alt="line graph"
+                            className="welc-img-1"
                         />
                     </div>
                     <div className="welc-sec-1-text">

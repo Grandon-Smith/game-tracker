@@ -1,8 +1,7 @@
 import React from 'react';
 import './UserLibrary.css'
 import {Link} from 'react-router-dom';
-import search from '../pics/magnifying-glass.webp';
-
+// import search from '../pics/magnifying-glass.webp';
 export default function UserLibrary(props) {
 
     if(props.stateData.fetching === false) {

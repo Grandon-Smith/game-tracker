@@ -66,11 +66,11 @@
 /* --------------DASHBOARD GAME CSS----------------- */
 
 .title-card {
-   margin: .5rem;
+   padding: 0 1rem;
 }
 
 .title-card > h2 {
-   margin: .5em;
+   padding: .5em;
 }
 
 .title-card-btns {
@@ -85,7 +85,7 @@
    border: 1px solid black;
    max-width: 8rem;
    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.685);
-   margin: auto auto;
+   margin: .5em auto;
 }
 
 .title-card-img-wrapper {
@@ -99,6 +99,7 @@
    border: 2px solid black;
    margin: 15px 0;
    padding: 5px;
+   background-color: white;
 }
 
 /* .store-wrapper * {
@@ -133,7 +134,7 @@
    max-width: 30rem;
    display: flex;
    flex-direction: column;
-   justify-content: space-around;
+   justify-content: space-evenly;
    text-align: left;
 }
 

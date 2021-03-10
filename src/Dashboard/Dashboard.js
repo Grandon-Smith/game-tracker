@@ -110,7 +110,7 @@ export default class Dashboard extends React.Component {
             );
         else if(this.props.match.path === "/dashboard/game/:gameId") {
             return (
-            <div>
+            <div className="body">
                 <Nav 
                     title={`/dashboard/${sessionStorage.name}`}
                     logout={true}
