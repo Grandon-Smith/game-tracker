@@ -40,14 +40,16 @@ export default function Welcome() {
                         />
                     </div>
                     <div className="welc-sec-1-text">
-                        <h3>Welcome to Game Saver!</h3>
+                        <h2>Welcome to Game Saver!</h2>
                         <h4>Where we help you compare game prices across online stores!</h4>
                     </div>
                 </section>
 
                 <section className="welcome-sec-2">
-                    <h3>About Us:</h3>
-                    {secData}
+                    <h2>About Us:</h2>
+                    <div>
+                        {secData}
+                    </div>
                 </section>
             </div>
         </div>
