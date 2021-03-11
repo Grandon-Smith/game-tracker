@@ -83,7 +83,6 @@ export default class Dashboard extends React.Component {
                     />
                     <div className="dashboard-container">
                         <form className="search-form" onSubmit={this.globalSearch}>
-                            <div className="search-wrapper">
                                 <input
                                     id="globalSearch"
                                     type="text" 
@@ -97,7 +96,6 @@ export default class Dashboard extends React.Component {
                                         alt="magnifying glass search icon"
                                     />
                                 </button>
-                            </div>
                         </form>
 
                         <UserLibrary 

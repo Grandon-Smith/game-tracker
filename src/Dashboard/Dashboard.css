@@ -5,32 +5,27 @@
 }
 
 .search-form {
-   /* border: 2px solid black; */
+   border: 1px solid black;
    width: 100%;
-   padding: 1rem 5%;
+   margin: .5rem auto;
+   padding: .5rem;
+   position: relative;
+   max-width: 35rem;
+
 }
+
 /* .search-form * {
    border: 1px solid black;
 } */
 
-.search-wrapper {
-   border: 1px solid black;
-   position: relative;
-   height: 2.5rem;
-   overflow: hidden;
-   border-radius: 20px;
-}
-
-.search-wrapper > input {
+.search-form > input {
    width: 100%;
    height: 100%;
-   border: none;
-   padding-left: 5%;
-   padding-right: 3.5rem;
+   padding: 5px 2.5rem 5px 10px;
    font-size: 1.1rem;
-   position: absolute;
    top: 0;
    left: 0;
+   border-radius: 50px;
 }
 
 .search-icon-wrapper {
@@ -42,10 +37,11 @@
    overflow: hidden;
    position: absolute;
    right: 0;
+   top: 10%;
 }
 .search-icon {
    width: 100%;
-   transform: scale(1.1);
+   /* transform: scale(1.1); */
    background-color: transparent;
    display: block;
 }
@@ -55,10 +51,10 @@
    width: 1rem;
 }
 
-.global-search-div > input:hover {
+.search-form input:hover {
    box-shadow: 2px 3px 3px rgb(182, 172, 172);
 }
-.global-search-div > input:focus {
+.search-form input:focus {
    box-shadow: 2px 3px 3px rgb(182, 172, 172);
    outline: none
 }
@@ -141,4 +137,11 @@
 .store-sale-data-wrapper a {
    text-decoration: none;
    color: black;
+}
+
+
+/*----------------- MEDIA QUERIES---------------------- */
+
+@media all and (min-width: 900px) {
+
 }

@@ -1,8 +1,6 @@
 .login-container {
     height: 100vh;
     padding: 5rem 1rem;
-    /* display: flex;
-    justify-content: center; */
     background-color: white;
 }
 
@@ -55,7 +53,6 @@ legend {
 }
 
 .login-form-buttons > button {
-    /* border: 1px solid black; */
     border: 0;
     max-width: 8rem;
     padding: .3em 2em;
