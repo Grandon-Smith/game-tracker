@@ -43,64 +43,66 @@ export default class CreateAccount extends React.Component {
 
     render(){
         return (
-            <div className="login-container">
+            <div>
                 <Nav 
                     title={'/'}
                 />
-                <form onSubmit={e => this.createAcct(e, this.state.createUsername, this.state.createEmail, this.state.createPassword)}>
-                    <fieldset className="login-form">
-                        <legend>Create Account:</legend>
-                        <div className="form-section">
-                            <label 
-                                htmlFor="username" 
-                                name="username"
-                                className="visually-hidden">
-                                    Username:
-                            </label>
-                            <input
-                                id="username" 
-                                type="text"
-                                placeholder=" Username"
-                                onChange={e => this.setState({createUsername: e.target.value})}
-                            />
-                        </div>
-                        <div className="form-section">
-                            <label 
-                                htmlFor="email" 
-                                name="email"
-                                className="visually-hidden">
-                                    Email:
-                            </label>
-                            <input
-                                id="email" 
-                                type="text"
-                                placeholder=" Email"
-                                onChange={e => this.setState({createEmail: e.target.value})}
-                            />
-                        </div>
-                        <div className="form-section">
-                            <label 
-                                htmlFor="password" 
-                                name="password"
-                                className="visually-hidden">
-                                    Password:
-                            </label>
-                            <input 
-                                id="password" 
-                                type="password" 
-                                name="password"
-                                placeholder=" Password"
-                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
-                                required
-                                onChange={e => this.setState({createPassword: e.target.value})}
-                            />
-                        </div>
-                        <div className="login-form-buttons form-section">
-                            <button type="submit">Submit</button>
-                        </div>
-                    </fieldset>
-                </form>
+                <div  className="login-container">
+                    <form onSubmit={e => this.createAcct(e, this.state.createUsername, this.state.createEmail, this.state.createPassword)}>
+                        <fieldset className="login-form">
+                            <legend>Create Account</legend>
+                            <div className="form-section">
+                                <label 
+                                    htmlFor="username" 
+                                    name="username"
+                                    className="visually-hidden">
+                                        Username
+                                </label>
+                                <input
+                                    id="username" 
+                                    type="text"
+                                    placeholder=" Username"
+                                    onChange={e => this.setState({createUsername: e.target.value})}
+                                />
+                            </div>
+                            <div className="form-section">
+                                <label 
+                                    htmlFor="email" 
+                                    name="email"
+                                    className="visually-hidden">
+                                        Email
+                                </label>
+                                <input
+                                    id="email" 
+                                    type="text"
+                                    placeholder=" Email"
+                                    onChange={e => this.setState({createEmail: e.target.value})}
+                                />
+                            </div>
+                            <div className="form-section">
+                                <label 
+                                    htmlFor="password" 
+                                    name="password"
+                                    className="visually-hidden">
+                                        Password
+                                </label>
+                                <input 
+                                    id="password" 
+                                    type="password" 
+                                    name="password"
+                                    placeholder=" Password"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+                                    required
+                                    onChange={e => this.setState({createPassword: e.target.value})}
+                                />
+                            </div>
+                            <div className="login-form-buttons form-section">
+                                <button type="submit">Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
         )
     }
