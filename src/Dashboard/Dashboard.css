@@ -80,13 +80,13 @@
 }
 
 .title-card-btns > *,
-.store-sale-data-wrapper > button {
+.store-sale-data-wrapper button {
    padding: .5em 1em;
    border-radius: 15px;
    border: 1px solid black;
    max-width: 8rem;
    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.685);
-   margin: .5em auto;
+   cursor: pointer;
 }
 
 .title-card-img-wrapper {
@@ -156,6 +156,36 @@
       margin: .5em 1em;
       font-size: 1.2rem;
       max-width: 10rem;
-
+      cursor: pointer;
    }
+
+   .title-card > h2 {
+      padding: .5em;
+      font-size: 1.6rem;
+   }
+
+   .store-wrapper {
+      margin: 2rem 5rem;
+   }
+
+   .store-sale-data-wrapper {
+      border-left: 1px solid black;
+      min-width: 55%;
+      max-width: 30rem;
+      padding: 0 6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      text-align: left;
+   }
+
+   .store-sale-data-wrapper * {
+      margin: 0 auto;
+      font-size: 1.1rem;
+   }
+
+   .store-sale-data-wrapper button {
+      max-width: 9rem;
+   }
+
 }

@@ -122,13 +122,14 @@ export default class DashboardGame extends React.Component {
                             <p>Current Price: {store.price}</p>
                             <p>Retail Price: {store.retailPrice}</p>
                             <p>Discount: {Math.floor(store.savings)+`%`}</p>
-                            <button>
+                            
                                 <a href={`https://www.cheapshark.com/redirect?dealID=`+store.dealID} 
                                     target="_blank" 
                                     rel="noreferrer">
+                                    <button>
                                         Check Deal
+                                    </button>
                                 </a>
-                            </button>
                         </div>
                     </div>
                 </div>
