@@ -140,7 +140,7 @@ export default class DashboardGame extends React.Component {
     render() {      
         if(this.props.stateData.fetching === false) {
             return (
-                <div>
+                <div className="dashboard-game-wrapper">
                     {this.generateTitleCard()}
                     {this.generateSelectedLibraryGameInfo()}
                 </div>

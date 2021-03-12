@@ -215,7 +215,6 @@ export default class GlobalSearch extends React.Component {
     };
 
     render() {
-        console.log(this.state)
         if(!sessionStorage.getItem('user')) {
             this.props.history.push('/login')
         };
@@ -226,22 +225,20 @@ export default class GlobalSearch extends React.Component {
                         title={`/dashboard/${this.props.match.params.user_id}`}
                         logout={true}
                     />
-                    <form className="search-form" onSubmit={e => this.globalSearch(e, this.props)}>
-                        <div className="search-wrapper">
-                            <input
-                                id="globalSearch"
-                                type="text" 
-                                placeholder="Search game deals"
-                                onChange={e => this.setState({newSearch: e.target.value})}
+                    <form className="search-form" onSubmit={this.globalSearch}>
+                        <input
+                            id="globalSearch"
+                            type="text" 
+                            placeholder="Search game deals"
+                            onChange={e => this.setState({search: e.target.value})}
+                        />
+                        <button type="submit" className="search-icon-wrapper">
+                            <img 
+                                src={search} 
+                                className="search-icon"
+                                alt="magnifying glass search icon"
                             />
-                            <button type="submit" className="search-icon-wrapper">
-                                <img 
-                                    src={search} 
-                                    className="search-icon"
-                                    alt="magnifying glass search icon"
-                                />
-                            </button>
-                        </div>
+                        </button>
                     </form>
                     <div className="global-search-container">
                         <h2>Search Results</h2>
@@ -258,22 +255,20 @@ export default class GlobalSearch extends React.Component {
                         logout={true}
 
                     />
-                    <form className="search-form" onSubmit={e => this.globalSearch(e, this.props)}>
-                        <div className="search-wrapper">
-                            <input
-                                id="globalSearch"
-                                type="text" 
-                                placeholder="Search game deals"
-                                onChange={e => this.setState({newSearch: e.target.value})}
+                    <form className="search-form" onSubmit={this.globalSearch}>
+                        <input
+                            id="globalSearch"
+                            type="text" 
+                            placeholder="Search game deals"
+                            onChange={e => this.setState({search: e.target.value})}
+                        />
+                        <button type="submit" className="search-icon-wrapper">
+                            <img 
+                                src={search} 
+                                className="search-icon"
+                                alt="magnifying glass search icon"
                             />
-                            <button type="submit" className="search-icon-wrapper">
-                                <img 
-                                    src={search} 
-                                    className="search-icon"
-                                    alt="magnifying glass search icon"
-                                />
-                            </button>
-                        </div>
+                        </button>
                     </form>
                     {this.generateSelectedGameInfo()}
                 </div>

@@ -5,7 +5,7 @@
 }
 
 .search-form {
-   border: 1px solid black;
+   /* border: 1px solid black; */
    width: 100%;
    margin: .5rem auto;
    padding: .5rem;
@@ -60,6 +60,11 @@
 }
 
 /* --------------DASHBOARD GAME CSS----------------- */
+
+.dashboard-game-wrapper {
+   max-width: 1000px;
+   margin: 0 auto;
+}
 
 .title-card {
    padding: 0 1rem;
@@ -143,5 +148,14 @@
 /*----------------- MEDIA QUERIES---------------------- */
 
 @media all and (min-width: 900px) {
+   .title-card-btns {
+      justify-content: center;
+   }
 
+   .title-card-btns > * {
+      margin: .5em 1em;
+      font-size: 1.2rem;
+      max-width: 10rem;
+
+   }
 }
