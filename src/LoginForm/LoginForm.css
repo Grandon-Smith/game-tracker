@@ -70,4 +70,12 @@ legend {
     padding: 0;
     position: absolute;
     width: 1px;
-  }
+}
+
+@media all and (min-width: 900px) {
+    .login-container {
+        height: 100vh;
+        padding: 8rem 1rem;
+        background-color: white;
+    }
+}
