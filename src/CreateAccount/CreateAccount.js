@@ -2,6 +2,7 @@ import React from 'react';
 import './CreateAccount.css';
 import Nav from '../Nav/Nav';
 import Utils from '../utils';
+import { Link } from 'react-router-dom';
 
 export default class CreateAccount extends React.Component {
     constructor(props) {
@@ -99,6 +100,10 @@ export default class CreateAccount extends React.Component {
                             </div>
                             <div className="login-form-buttons form-section">
                                 <button type="submit">Submit</button>
+                                <p> Alredy have an account?</p>
+                            <Link to={"/login"}>
+                                    Log In
+                            </Link>
                             </div>
                         </fieldset>
                     </form>

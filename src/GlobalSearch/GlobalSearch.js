@@ -19,9 +19,9 @@ export default class GlobalSearch extends React.Component {
         }
     }
 
-    globalSearch(e, propData) {
+    globalSearch = (e, propData) => {
         e.preventDefault()
-        console.log(propData)
+        console.log(this.state)
         this.props.history.push(`/dashboard/${sessionStorage.name}/${this.state.newSearch}`)
         let title = this.state.newSearch;
         fetch(`https://www.cheapshark.com/api/1.0/deals?title=${title}`)
@@ -215,6 +215,7 @@ export default class GlobalSearch extends React.Component {
     };
 
     render() {
+        // console.log(this.props)
         if(!sessionStorage.getItem('user')) {
             this.props.history.push('/login')
         };
@@ -225,12 +226,12 @@ export default class GlobalSearch extends React.Component {
                         title={`/dashboard/${this.props.match.params.user_id}`}
                         logout={true}
                     />
-                    <form className="search-form" onSubmit={this.globalSearch}>
+                    <form className="search-form" onSubmit={(e) => this.globalSearch(e)}>
                         <input
                             id="globalSearch"
                             type="text" 
                             placeholder="Search game deals"
-                            onChange={e => this.setState({search: e.target.value})}
+                            onChange={e => this.setState({newSearch: e.target.value})}
                         />
                         <button type="submit" className="search-icon-wrapper">
                             <img 
@@ -255,12 +256,12 @@ export default class GlobalSearch extends React.Component {
                         logout={true}
 
                     />
-                    <form className="search-form" onSubmit={this.globalSearch}>
+                    <form className="search-form" onSubmit={e => this.globalSearch(e)}>
                         <input
                             id="globalSearch"
                             type="text" 
                             placeholder="Search game deals"
-                            onChange={e => this.setState({search: e.target.value})}
+                            onChange={e => this.setState({newSearch: e.target.value})}
                         />
                         <button type="submit" className="search-icon-wrapper">
                             <img 

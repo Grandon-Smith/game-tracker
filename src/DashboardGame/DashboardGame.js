@@ -81,10 +81,19 @@ export default class DashboardGame extends React.Component {
     };
 
     generateTitleCard() {
+        console.log(this.props)
         let selectedGame = this.props.stateData.gameList
             .filter(game => game[0] === this.props.propData.match.params.gameId);
         return (
             <div className="title-card">
+                <div className="close-window-btn-div">
+                    <button 
+                        onClick={() => {
+                            this.props.propData.history.goBack();
+                        }}>
+                            X
+                    </button>
+                </div>
                 <h2>{selectedGame[0][1].info.title}</h2>
                 <div className="title-card-img-wrapper">
                     <img src={selectedGame[0][1].info.thumb}
