@@ -63,12 +63,13 @@
 
 .dashboard-game-wrapper {
    background-image: linear-gradient(#c78a56, #f6d05f);
-   max-width: 1000px;
    margin: 0 auto;
 }
 
 .title-card {
    padding: 0 1rem;
+   max-width: 1000px;
+   margin: auto auto;
 }
 
 .title-card > h2 {
@@ -97,15 +98,13 @@
    color: white;
 }
 
-.title-card-btns > *:hover {
-   /* change second button color */
-   background-color: rgb(236, 26, 26);
-   color: white;
+.title-card-btns button:nth-child(1):hover {
+   background-color: rgba(255, 19, 19, 0.801);
 }
 
-/* .title-card-btns:nth-child(1):hover {
-   background-color: lime;
- } */
+.title-card-btns button:nth-child(2):hover {
+   background-color: rgb(0, 196, 0);
+}
 
 
 .store-sale-data-wrapper button:hover {
@@ -123,10 +122,11 @@
 
 .store-wrapper {
    border: 2px solid black;
-   margin: 15px 0;
+   margin: 15px auto;
    padding: 5px;
    background-color: rgba(255, 255, 255, 0.753);
    border-radius: 10px;
+   max-width: 1000px;
 }
 
 /* .store-wrapper * {
@@ -191,7 +191,7 @@
    }
 
    .store-wrapper {
-      margin: 2rem 5rem;
+      margin: 2rem auto;
    }
 
    .store-sale-data-wrapper {

@@ -73,7 +73,7 @@
 .close-window-btn-div {
     display: flex;
     justify-content: flex-end;
-    margin: .5em;
+    padding: .5em;
 }
 
 .close-window-btn-div > button {
