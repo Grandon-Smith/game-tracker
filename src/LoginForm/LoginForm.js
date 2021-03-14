@@ -16,7 +16,7 @@ export default class LoginForm extends React.Component {
             <div className="login-container">
                 <form onSubmit={e => this.props.login(e, this.state.loginUsername, this.state.loginPassword)}>
                     <fieldset className="login-form">
-                        <legend>Login</legend>
+                        <legend>Log In</legend>
                         <div className="form-section">
                             <label 
                                 htmlFor="username" 

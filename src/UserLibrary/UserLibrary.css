@@ -1,11 +1,12 @@
 .user-library-container {
-    outline: black solid 1px;
-    background-color: white;
+    border: black solid 1px;
+    background-color: rgba(255, 255, 255, 0.493);
     margin: auto;
     padding: 1rem 0;
     max-width: 75rem;
     min-width: 280px;
     min-height: 25rem;
+    border-radius: 10px;
 }
 
 .user-library-game-search > h2{
@@ -30,9 +31,12 @@
 }
 
 .user-game {
+    background-color: rgb(65, 65, 65);
     border: 1px black solid;
-    padding: 3px;
-    color: black;
+    /* padding: 3px; */
+    border-radius: 10px;
+    overflow: hidden;
+    color: white;
     width: 45%;
     max-width: 15rem;
     min-height: 12rem;
@@ -60,7 +64,7 @@
     }
 
     .user-game {
-        padding: 5px;
+        /* padding: 5px; */
         width: 45%;
         max-width: 16rem;
         min-height: 20rem;

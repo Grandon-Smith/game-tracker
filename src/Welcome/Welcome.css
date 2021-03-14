@@ -2,12 +2,13 @@
 .welcome-container {
     padding: 2rem 5%;
     width: 100%;
-    background-color: rgb(206, 206, 206);
+    background-image: linear-gradient(#c78a56, #f6d05f);
 }
 
 [class^="welcome-sec"] {
     border: 1px black solid;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.507); 
+    border-radius: 15px;
     margin: 0 auto 2rem auto;
     max-width: 700px;
 }

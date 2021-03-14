@@ -135,7 +135,10 @@
 @media all and (min-width: 1200px) {
     .global-search-container {
         margin: 0 auto;
+    }
 
+    .global-search-container h2{
+        font-size: 2rem;
     }
     
 }

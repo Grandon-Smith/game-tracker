@@ -1,14 +1,18 @@
 .login-container {
-    height: 100vh;
-    padding: 5rem 1rem;
-    background-color: white;
+    height: 40rem;
+    padding: 5rem 1rem 0 1rem;
+    background-image: linear-gradient(#a8a8a8, #f6d05f);
 }
-
+/* cb995a */
+/* f6d05f */
+/* c78a56 */
+/* 68824f */
 .login-container > form {
-background-color: white;
+background-color: rgba(255, 255, 255, 0.514);
 padding: .5rem;
 max-width: 25rem;
 margin: 0 auto;
+border-radius: 10px;
 }
 
 legend {
@@ -58,7 +62,19 @@ legend {
     padding: .3em 2em;
     margin: 1rem auto;
     border-radius: 20px;
-    box-shadow:0 0 5px rgba(0, 0, 0, 0.719)
+    box-shadow:0 0 5px rgba(0, 0, 0, 0.719);
+    transition: all .25s;
+}
+
+.login-form-buttons > button:hover {
+    background-color: #68824f;
+    color: white;
+    border: 0;
+    padding: .35em 2.2em;
+    margin: 1rem auto;
+    border-radius: 20px;
+    box-shadow:0 0 5px rgba(0, 0, 0, 0.719);
+    cursor: pointer;
 }
 
 .visually-hidden {
@@ -75,7 +91,7 @@ legend {
 @media all and (min-width: 900px) {
     .login-container {
         height: 100vh;
-        padding: 8rem 1rem;
+        padding: 8rem 1rem 0 1rem;
         background-color: white;
     }
 }
