@@ -2,7 +2,7 @@ import React from 'react';
 import './Welcome.css';
 import Nav from '../Nav/Nav';
 // import controller from '../pics/holding-controller.jpg';
-import graph from '../pics/graph.jpg';
+import graph from '../pics/graph.svg';
 import data from './Welcome-obj'
 
 
@@ -31,6 +31,13 @@ export default function Welcome() {
             />
             <div className="welcome-container">
 
+            <section className="welcome-sec-2">
+                    <h2>Welcome to Game Saver!</h2>
+                    <div>
+                        {secData}
+                    </div>
+                </section>
+
                 <section className="welcome-sec-1">
                     <div className="welc-img-wrapper-1">
                         <img
@@ -45,12 +52,6 @@ export default function Welcome() {
                     </div>
                 </section>
 
-                <section className="welcome-sec-2">
-                    <h2>About Us:</h2>
-                    <div>
-                        {secData}
-                    </div>
-                </section>
             </div>
         </div>
     );

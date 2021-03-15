@@ -7,7 +7,7 @@
 
 [class^="welcome-sec"] {
     border: 1px black solid;
-    background-color: rgba(255, 255, 255, 0.507); 
+    background-color: rgba(255, 255, 255, 0.541); 
     border-radius: 15px;
     margin: 0 auto 2rem auto;
     max-width: 700px;
@@ -101,7 +101,7 @@
 
     .welc-sec-info-2 {
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         flex-basis: 100%;
     }

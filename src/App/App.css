@@ -3,13 +3,21 @@
   margin: 0;
 }
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Source+Code+Pro:wght@500;600&display=swap');
 :root {
   --title-font: 'Press Start 2P', serif;
+  --headers-font: 'Source Code Pro', 'sans-serif';
+  --accent-font: 'Montserrat','serif';
 }
+
+h2, h3 {
+  font-family: var(--headers-font)
+}
+
 .App {
   text-align: center;
   height: 100vh;
+  font-family: var(--accent-font)
 }
 
 .App-logo {

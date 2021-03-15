@@ -19,7 +19,7 @@ const data = [
         imgSrc: saveMoney,
         imgAlt: "Gold coin being dropped into a piggy bank",
         imgClass: "welc-img-2",
-        imgText: "Set email price alerts and save big!",
+        imgText: "Set email price alerts for specific games and save big!",
     },
 ]
 
