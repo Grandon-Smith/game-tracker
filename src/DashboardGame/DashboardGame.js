@@ -81,7 +81,6 @@ export default class DashboardGame extends React.Component {
     };
 
     generateTitleCard() {
-        console.log(this.props)
         let selectedGame = this.props.stateData.gameList
             .filter(game => game[0] === this.props.propData.match.params.gameId);
         return (
