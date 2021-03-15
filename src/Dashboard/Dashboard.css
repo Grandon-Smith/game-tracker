@@ -1,6 +1,6 @@
 .dashboard-container {
    width: 100%;
-   height: 100vh;
+   min-height: 100vh;
    background-image: linear-gradient(#c78a56, #f6d05f);
    padding: 1rem;
 }
@@ -11,7 +11,6 @@
    padding: .5rem;
    position: relative;
    max-width: 35rem;
-
 }
 
 .search-form > input {

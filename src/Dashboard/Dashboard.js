@@ -76,7 +76,7 @@ export default class Dashboard extends React.Component {
         }
         if(this.props.match.path === "/dashboard/:user_id")
             return (
-                <div>
+                <>
                     <Nav 
                         title={`/dashboard/${sessionStorage.name}`}
                         logout={true}
@@ -104,7 +104,7 @@ export default class Dashboard extends React.Component {
                             getSelectedLibraryGameInfo={this.getSelectedLibraryGameInfo}
                         />
                     </div>
-                </div>
+                </>
             );
         else if(this.props.match.path === "/dashboard/game/:gameId") {
             return (

@@ -221,31 +221,33 @@ export default class GlobalSearch extends React.Component {
         };
         if(this.props.match.path ==='/dashboard/:user_id/:search'){
             return (
-                <div className="body">
+                <>
                     <Nav 
                         title={`/dashboard/${this.props.match.params.user_id}`}
                         logout={true}
                     />
-                    <form className="search-form" onSubmit={(e) => this.globalSearch(e)}>
-                        <input
-                            id="globalSearch"
-                            type="text" 
-                            placeholder="Search game deals"
-                            onChange={e => this.setState({newSearch: e.target.value})}
-                        />
-                        <button type="submit" className="search-icon-wrapper">
-                            <img 
-                                src={search} 
-                                className="search-icon"
-                                alt="magnifying glass search icon"
+                    <div  className="dashboard-container">
+                        <form className="search-form" onSubmit={(e) => this.globalSearch(e)}>
+                            <input
+                                id="globalSearch"
+                                type="text" 
+                                placeholder="Search game deals"
+                                onChange={e => this.setState({newSearch: e.target.value})}
                             />
-                        </button>
-                    </form>
-                    <div className="global-search-container">
-                        <h2>Search Results</h2>
-                        { this.generateSearchResults() }
+                            <button type="submit" className="search-icon-wrapper">
+                                <img 
+                                    src={search} 
+                                    className="search-icon"
+                                    alt="magnifying glass search icon"
+                                />
+                            </button>
+                        </form>
+                        <div className="global-search-container">
+                            <h2>Search Results</h2>
+                            { this.generateSearchResults() }
+                        </div>
                     </div>
-                </div>
+                </>
             );
         }
         else if (this.props.match.path ==='/dashboard/:user_id/:search/:gameId') {

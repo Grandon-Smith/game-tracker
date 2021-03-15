@@ -16,7 +16,7 @@ h2, h3 {
 
 .App {
   text-align: center;
-  height: 100vh;
+  min-height: 100%;
   font-family: var(--accent-font)
 }
 
