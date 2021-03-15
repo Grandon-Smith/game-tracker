@@ -47,8 +47,8 @@ export default function Welcome() {
                         />
                     </div>
                     <div className="welc-sec-1-text">
-                        <h2>Welcome to Game Saver!</h2>
-                        <h4>Where we help you compare game prices across online stores!</h4>
+                        <h2>Ready to Save?</h2>
+                        <p>We help you compare game prices across over 25 online stores to find you the best place to buy the games you want!</p>
                     </div>
                 </section>
 

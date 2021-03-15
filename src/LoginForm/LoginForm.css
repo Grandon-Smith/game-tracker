@@ -1,5 +1,5 @@
 .login-container {
-    height: 40rem;
+    height: 100vh;
     padding: 5rem 1rem 0 1rem;
     background-image: linear-gradient(#a8a8a8, #f6d05f);
 }
@@ -70,7 +70,6 @@ legend {
     background-color: #68824f;
     color: white;
     border: 0;
-    padding: .35em 2.2em;
     margin: 1rem auto;
     border-radius: 20px;
     box-shadow:0 0 5px rgba(0, 0, 0, 0.719);

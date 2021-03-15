@@ -11,6 +11,7 @@
     border-radius: 15px;
     margin: 0 auto 2rem auto;
     max-width: 700px;
+    padding: 1rem;
 }
 
 /* [class^="welcome-sec"] * {
@@ -27,6 +28,12 @@
     width: 100%;
 }
 
+[class^="welcome-sec"] p {
+    text-align: left;
+    margin: .5rem;
+    line-height: 1.5em;
+}
+
 .welc-img-wrapper-2 {
     max-width: 15rem;
 }
@@ -34,13 +41,10 @@
 .welc-sec-1-text {
     margin: 1rem 0;
 }
-.welc-sec-1-text > h3 {
-    margin: 1rem 0;
-}
 
-.welcome-sec-2 {
+/* .welcome-sec-2 {
     padding: 5%;
-}
+} */
 
 .welc-sec-info-2 {
     margin-top: 2rem;
@@ -54,19 +58,27 @@
     margin: .5rem;
     display: flex;
     align-items: center;
-    line-height: 1.5em;
 }
 
 
 @media all and (min-width: 650px) {
-    .welcome-sec-2 h3 {
-        font-size: 2rem;
-
+    .welcome-container h2 {
+        font-size: 1.8rem;
     }
+    .welcome-sec-1 {
+        display: flex;
+    }
+
     .welc-sec-info-2 > * {
         font-size: 1.2rem;
         margin: 2rem;
         line-height: 2rem;
+    }
+
+    [class^="welcome-sec"] p {
+        margin: 2em;
+        line-height: 2em;
+        font-size: 1.2rem;
     }
 }
 

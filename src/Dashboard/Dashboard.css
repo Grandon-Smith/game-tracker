@@ -5,7 +5,6 @@
 }
 
 .search-form {
-   /* border: 1px solid black; */
    width: 100%;
    margin: 2% auto;
    padding: .5rem;
@@ -13,10 +12,6 @@
    max-width: 35rem;
 
 }
-
-/* .search-form * {
-   border: 1px solid black;
-} */
 
 .search-form > input {
    width: 100%;
@@ -41,7 +36,6 @@
 }
 .search-icon {
    width: 100%;
-   /* transform: scale(1.1); */
    background-color: transparent;
    display: block;
 }
@@ -52,22 +46,23 @@
 }
 
 .search-form input:hover {
-   box-shadow: 2px 3px 3px rgb(182, 172, 172);
+   box-shadow: 1px 1px 5px rgba(73, 25, 25, 0.562);
 }
 .search-form input:focus {
-   box-shadow: 2px 3px 3px rgb(182, 172, 172);
-   outline: none
+   box-shadow: 2px 3px 8px rgba(73, 25, 25, 0.781);
+   outline: none;
 }
 
 /* --------------DASHBOARD GAME CSS----------------- */
 
+
 .dashboard-game-wrapper {
    background-image: linear-gradient(#c78a56, #f6d05f);
-   margin: 0 auto;
 }
 
-.title-card {
-   padding: 0 1rem;
+.title-card,
+.stores-wrapper {
+   padding: .5rem 1rem;
    max-width: 1000px;
    margin: auto auto;
 }
@@ -76,7 +71,16 @@
    padding: .5em;
    color: white;
    font-size: 1.6rem;
+}
 
+.title-card-img-wrapper > img {
+   min-width: 12rem;
+}
+
+.title-card-img-wrapper {
+   max-width: 15rem;
+   max-height: 20rem;
+   margin: 1rem auto;
 }
 
 .title-card-btns {
@@ -84,15 +88,6 @@
    justify-content: space-evenly;
 }
 
-.title-card-btns > *,
-.store-sale-data-wrapper button {
-   padding: .5em 1em;
-   border-radius: 15px;
-   border: 1px solid black;
-   max-width: 8rem;
-   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.685);
-   cursor: pointer;
-}
 .title-card-btns > * {
    background-color: rgb(71, 71, 71);
    color: white;
@@ -106,19 +101,22 @@
    background-color: rgb(0, 196, 0);
 }
 
+.title-card-btns > *,
+.store-sale-data-wrapper button {
+   padding: .5em 1em;
+   border-radius: 15px;
+   border: 1px solid black;
+   max-width: 8rem;
+   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.685);
+   font-family: var(--accent-font);
+   cursor: pointer;
+}
 
 .store-sale-data-wrapper button:hover {
    background-color: #68824f;
    color: white;
-
+   border: rgba(255, 255, 255, 0.678) 1px solid;
 }
-
-.title-card-img-wrapper {
-   max-width: 15rem;
-   max-height: 20rem;
-   margin: 1rem auto;
-}
-
 
 .store-wrapper {
    border: 2px solid black;
@@ -191,7 +189,7 @@
    }
 
    .store-wrapper {
-      margin: 2rem auto;
+      margin: 2rem;
    }
 
    .store-sale-data-wrapper {

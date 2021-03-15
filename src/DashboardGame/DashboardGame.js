@@ -152,7 +152,9 @@ export default class DashboardGame extends React.Component {
             return (
                 <div className="dashboard-game-wrapper">
                     {this.generateTitleCard()}
-                    {this.generateSelectedLibraryGameInfo()}
+                    <div className="stores-wrapper">
+                        {this.generateSelectedLibraryGameInfo()}
+                    </div>
                 </div>
             );
         } return(<div></div>);
