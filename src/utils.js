@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import STORES from './STORE';
 
 const Utils = {
-    api: {'nodeUrl': 'https://thawing-scrubland-23736.herokuapp.com'},
+    api: {'nodeUrl': 'https://game-tracker--api.herokuapp.com'},
     logout() {
         sessionStorage.removeItem('user')
         sessionStorage.removeItem('name')
