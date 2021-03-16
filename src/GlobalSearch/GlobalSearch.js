@@ -186,10 +186,10 @@ export default class GlobalSearch extends React.Component {
                         <img src={game.thumb} alt={`game cover of ${game.title}`}/>
                     </div>
                     <div className="global-game-stats">
-                        <h5>Metacritic Score: {game.metacriticScore === 0 ? "--": game.metacriticScore}</h5>
-                        <h5>Steam Rating: {game.steamRatingPercent === 0 ? "--": `${game.steamRatingPercent}%`}</h5>
-                        <h5>Normal Price: ${game.normalPrice}</h5>
-                        <h5>Sale Price: ${game.salePrice}</h5>
+                        <p>Metacritic Score: {game.metacriticScore === 0 ? "--": game.metacriticScore}</p>
+                        <p>Steam Rating: {game.steamRatingPercent === 0 ? "--": `${game.steamRatingPercent}%`}</p>
+                        <p>Normal Price: ${game.normalPrice}</p>
+                        <p>Sale Price: ${game.salePrice}</p>
                     </div>
                     <div className="global-game-user-btns">
                         <button>
@@ -252,30 +252,32 @@ export default class GlobalSearch extends React.Component {
         }
         else if (this.props.match.path ==='/dashboard/:user_id/:search/:gameId') {
             return(
-                <div className="body">
+                <>
                     <Nav 
                         title={`/dashboard/${sessionStorage.name}`}
                         logout={true}
 
                     />
-                    <form className="search-form" onSubmit={e => this.globalSearch(e)}>
-                        <input
-                            id="globalSearch"
-                            type="text" 
-                            placeholder="Search game deals"
-                            onChange={e => this.setState({newSearch: e.target.value})}
-                        />
-                        <button type="submit" className="search-icon-wrapper">
-                            <img 
-                                src={search} 
-                                className="search-icon"
-                                alt="magnifying glass search icon"
+                    <div className="dashboard-container">
+                        <form className="search-form" onSubmit={e => this.globalSearch(e)}>
+                            <input
+                                id="globalSearch"
+                                type="text" 
+                                placeholder="Search game deals"
+                                onChange={e => this.setState({newSearch: e.target.value})}
                             />
-                        </button>
-                    </form>
-                    {this.generateSelectedGameInfo()}
-                </div>
+                            <button type="submit" className="search-icon-wrapper">
+                                <img 
+                                    src={search} 
+                                    className="search-icon"
+                                    alt="magnifying glass search icon"
+                                />
+                            </button>
+                        </form>
+                        {this.generateSelectedGameInfo()}
+                    </div>
+                </>
             );
         };
     };
-};
+}; 
