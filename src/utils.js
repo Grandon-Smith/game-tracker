@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import STORES from './STORE';
 
 const Utils = {
-    api: {'nodeUrl': 'http://localhost:8000'},
+    api: {'nodeUrl': 'https://thawing-scrubland-23736.herokuapp.com'},
     logout() {
         sessionStorage.removeItem('user')
         sessionStorage.removeItem('name')
