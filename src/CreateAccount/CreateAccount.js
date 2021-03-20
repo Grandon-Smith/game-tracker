@@ -60,7 +60,8 @@ export default class CreateAccount extends React.Component {
                                         Username
                                 </label>
                                 <input
-                                    id="username" 
+                                    id="username"
+                                    name="username"
                                     type="text"
                                     placeholder=" Username"
                                     onChange={e => this.setState({createUsername: e.target.value})}
@@ -74,7 +75,8 @@ export default class CreateAccount extends React.Component {
                                         Email
                                 </label>
                                 <input
-                                    id="email" 
+                                    id="email"
+                                    name="email"
                                     type="text"
                                     placeholder=" Email"
                                     onChange={e => this.setState({createEmail: e.target.value})}
