@@ -21,7 +21,7 @@ you must be following a game to set a price alert!
 While this app does not handle purchasing of games (we link you to sites instead), \
 we still value security, therefore all passwords are hashed before they're saved.
 
-##Full Stack Deployment
+## Full Stack Deployment
 
 This application uses a Create-React-App front end as well as a Nodejs \
 API and PostgreSQL Database. The github repo for the Node API can be found \
