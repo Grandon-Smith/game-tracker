@@ -48,9 +48,9 @@
     transition: all 0.25s ease-in-out 0s;
 }
 
-.header a:hover {
-    color: white;
-    text-decoration: underline solid white;
+.header h1 > a:hover {
+    color: rgb(175, 174, 174);
+    text-decoration: underline solid rgb(175, 174, 174);
 }
 
 .nav-btn {
