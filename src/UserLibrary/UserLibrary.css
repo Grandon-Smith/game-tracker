@@ -45,6 +45,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    transition: all 0.25s ease-in-out 0s;
+
+}
+
+.user-game:hover {
+    background-color: rgb(49, 49, 49);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.932);
 }
 
 .user-game > h4 {

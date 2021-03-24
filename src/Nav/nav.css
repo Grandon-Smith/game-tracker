@@ -45,6 +45,12 @@
     position: relative;
     text-decoration: none;
     cursor: pointer;
+    transition: all 0.25s ease-in-out 0s;
+}
+
+.header a:hover {
+    color: white;
+    text-decoration: underline solid white;
 }
 
 .nav-btn {
