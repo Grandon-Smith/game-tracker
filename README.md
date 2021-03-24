@@ -1,4 +1,18 @@
-# Getting Started with Create React App
+# Using Game Tracker
+
+## What is this app for?
+This app is designed for users to quickly check on games they are interested in buying.
+By following a game, it's added to your dashboard, allowing you to check the price in 
+numerous online stores where it is sold.
+Below is an example of a users dashboard after a few games have been added.
+
+![User Dashboard](public/dashboard-screenshot.png)
+
+
+
+
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +81,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
